@@ -1,95 +1,22 @@
-import { Carousel } from '@mantine/carousel'
-import { Center, Container, Divider, Image, SimpleGrid, Stack } from '@mantine/core'
-import { CardMenu } from '../components/CardMenu';
-import React from 'react'
- 
-const mockdata = [
-  {
-    title: 'Comida',
-    image:
-      'https://gh-onboarding.s3.amazonaws.com/almatierra-restaurant-noche_5cdc0a98f5.png',
-
-  },
-  {
-    title: 'Desayunos',
-    image:
-      'https://gh-onboarding.s3.amazonaws.com/medium_ojo-azul-web-0004-img-0971_9be7a64408.jpg',
-
-  },
-  {
-    title: 'Bebidas sin alcohol',
-    image:
-      'https://scontent.ftij2-1.fna.fbcdn.net/v/t39.30808-6/274871680_3106982496183192_5762296052679277238_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeGbHo-j1dxx3T9m6oSv_B8LDBLpLDL2pXEMEuksMvalccC7mwm5MInc5jkGTvMO-n99MVhQKDLCL9BxxbAURtVe&_nc_ohc=7aNWFdge7uwAX-t4caa&_nc_ht=scontent.ftij2-1.fna&oh=00_AfD_xfXAiAmg0KNJrUfAJTLfKmuAIOHPdM5o1SdMvEMX_A&oe=636445F5'
-  },
-  {
-    title: 'Cafeteria',
-    image:
-      'https://scontent.ftij2-1.fna.fbcdn.net/v/t39.30808-6/278501684_3139129839635124_2699534012152403975_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeEtFgXNZwYoGqfhsDG6MUcAajHcfE7MP31qMdx8Tsw_fdCzz8ihGxZO-UqSqNrUuM6HhQ5onuoSlQ-adVu71f76&_nc_ohc=HiPvIwaMODgAX9yi2fc&_nc_ht=scontent.ftij2-1.fna&oh=00_AfA2Y-LFdsV1TqblCp1Cwm-EKJcXqQg1OkmCKx9IzfgZ2Q&oe=6365A461',
-
-  },
-  {
-    title: 'Mixologia/cocteleria/Licores',
-    image:
-      'https://scontent.ftij2-1.fna.fbcdn.net/v/t39.30808-6/274938190_3106981999516575_5659830263868263256_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeEAWqPRABCO2-kB7CDokbo2fPTTWd16bn989NNZ3Xpuf3gJyV-GotG4Bjn-K8H2S19YusSC_JbtCPudRVWKOVGa&_nc_ohc=z0p-krudPgkAX8dOe16&_nc_ht=scontent.ftij2-1.fna&oh=00_AfD2GO2kBcH7QAOVERaQ8GpmYmhXOAXq-kTr4Ut-7s754Q&oe=63652E5C',
-
-  },
-  {
-    title: 'vino',
-    image:
-      'https://scontent.ftij2-1.fna.fbcdn.net/v/t39.30808-6/305842330_498974802231518_914079038529931362_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeEgTskmgKGlS7MP5gbofhOe9GaF1Qm_C_v0ZoXVCb8L-6503vD-w_K8-6TbX_f73iG_46Aj5cqUX3TT2f18zALE&_nc_ohc=7Y4SraZHNicAX_DcDBn&_nc_ht=scontent.ftij2-1.fna&oh=00_AfB6YLrf6CfJkM8MMCi0oLdBbI1TtYrYmTtjwxxOdzR5kg&oe=636572AC',
-
-  },
-];
-
-
 export default function Home() {
-  const images = [
-    {
-      "alt": "asdas1",
-      "src": "312063953_543755607753437_6672272973999994885_n"
-    },
-    {
-      "alt": "asdas2",
-      "src": "312063953_543755607753437_6672272973999994885_n"
-    },
-    {
-      "alt": "asdas3",
-      "src": "312063953_543755607753437_6672272973999994885_n"
-    },
-
-  ]
-
-  const cards= mockdata.map((v)=>(<CardMenu image={v.image} title={v.title}></CardMenu>))
   return (
-    <Stack sx={{ backgroundColor:'#B2945E'}}>
-      <Carousel
-        sx={{ minWidth: '100%', maxHeight: '40%', backgroundColor: 'black' }}
-        slideSize="70%"
-        slideGap="md"
-        loop
-        withIndicators>
-        {images.map((i: any) => {
-          console.log(i)
-          return (
-            <Carousel.Slide key={i.alt}>
-              <Center>
-                <Image
-                  sx={{ maxWidth: 350, maxHeight: '40%' }}
-                  src={`${i.src}.jpg`}
-                  alt="asxas"
-                />
-              </Center>
-            </Carousel.Slide>)
-        })}
-      </Carousel>
-      <div>
-        <Container >
-          <SimpleGrid cols={3} breakpoints={[{ maxWidth: 600, cols: 1 }, { maxWidth: 755, cols: 2 }, { maxWidth: 980, cols: 3 }]}>
-            {cards}
-          </SimpleGrid>
-        </Container>
-      </div>
-    </Stack>
+    <h1>home</h1>
 
   )
+}
+export async function getStaticProps() {
+  const content = null;
+
+  if (!content) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: '/menu',
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 }
