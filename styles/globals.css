@@ -2,14 +2,10 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
+ 
   font-family: 'Rufina', serif;
   background-color: #B2945E;
-  flex-direction: row;
+
 
 }
 
-* {
-  box-sizing: border-box;
-}
