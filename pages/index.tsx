@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <h1>home</h1>
+    <h1>ERROR</h1>
 
   )
 }
@@ -10,7 +10,7 @@ export async function getStaticProps() {
   if (!content) {
     return {
       redirect: {
-        permanent: false,
+        permanent: true,
         destination: '/menu',
       },
     };

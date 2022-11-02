@@ -1,5 +1,7 @@
 import { IconArrowNarrowRight } from '@tabler/icons';
 import { Card, Text, Group, createStyles } from '@mantine/core';
+import { normilizeRoute } from '../static/onStrings';
+import { dataMenus } from '../utils/data';
 
 const useStyles = createStyles((theme, _params, getRef) => {
     const image = getRef('image');
@@ -23,6 +25,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
             bottom: 0,
             backgroundSize: 'cover',
             transition: 'transform 500ms ease',
+            backgroundPosition: 'center'
         },
 
         content: {
@@ -42,15 +45,15 @@ const useStyles = createStyles((theme, _params, getRef) => {
 });
 
 interface ImageCardProps {
-
     image: string;
     title: string;
-
 }
 
 export function CardMenu({ image, title }: ImageCardProps) {
     const { classes, theme } = useStyles();
 
+    const getCategories = () => dataMenus.find(d => normilizeRoute(d.title) === normilizeRoute(title))
+    const firstChild = () => getCategories()?.categories[0].toString()
     return (
         <Card
             p="lg"
@@ -58,7 +61,7 @@ export function CardMenu({ image, title }: ImageCardProps) {
             className={classes.card}
             radius="md"
             component="a"
-            href={`/menu/${title.toLocaleLowerCase()}`}
+            href={`/menu/${normilizeRoute(title)}/${normilizeRoute(firstChild() ?? '')}`}
             target="_self"
         >
             <div className={classes.image} style={{ backgroundImage: `url(${image})` }} />
