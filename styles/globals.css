@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Rufina&display=swap');
 
-html,
-body {
- 
-  font-family: 'Rufina', serif;
+html {
+  font-size: 62.5%;
   background-color: #B2945E;
-
 
 }
 
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Rufina', serif;
+
+
+
+}
