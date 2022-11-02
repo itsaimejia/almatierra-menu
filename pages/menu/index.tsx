@@ -1,5 +1,5 @@
 import { Carousel } from '@mantine/carousel'
-import { Center, Container, Divider, Image, SimpleGrid, Stack } from '@mantine/core'
+import { Center, Container, Image, SimpleGrid, Stack } from '@mantine/core'
 import { CardMenu } from '../../components/CardMenu'
 import React from 'react'
 import { dataMenus } from '../../utils/data'
