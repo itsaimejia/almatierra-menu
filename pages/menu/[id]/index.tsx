@@ -20,7 +20,8 @@ export default function IdMenu() {
 
             <Container sx={{ width: '90%' }}>
                 <Group position="center" spacing="xl">
-                    {dataMenus.map((m) => <ButtonMenuOption key={m.title} title={m.title} fontSize={'1.8rem'} active={false} />)}
+                    {dataMenus.map((m) =>
+                        <ButtonMenuOption key={m.title} title={m.title} fontSize={'1.8rem'} active={false} />)}
                 </Group>
             </Container>
             <Divider color={'black'} />

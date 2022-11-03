@@ -5,9 +5,10 @@ import { useRouter } from "next/router";
 import { ButtonCategorieOption } from "../../../components/ButtonCategorieOption";
 import { ButtonMenuOption } from "../../../components/ButtonMenuOption";
 import { normilizeRoute } from "../../../static/onStrings";
-import { dataMenus } from "../../../utils/data";
+import { dataCymbals, dataMenus, imageCymbals } from "../../../utils/data";
 import { CardMenu } from "../../../components/CardMenu";
 import { CategoriesScroll } from "../../../components/CategoriesScroll";
+import { CymbalsMenu } from "../../../components/CymbalsMenu";
 
 
 
@@ -34,20 +35,14 @@ export default function IdCategorie() {
             <CategoriesScroll array={getCategories()?.categories ?? []} />
 
 
-            <Box
-                sx={(theme) => ({
-
-                    textAlign: 'center',
-                    padding: theme.spacing.xl,
-                })}
-            >
-                <Container >
-                    <SimpleGrid cols={2} breakpoints={[{ maxWidth: 600, cols: 1 }, { maxWidth: 755, cols: 1 }, { maxWidth: 980, cols: 2 }]}>
-                        {dataMenus.map((v) => (<CardMenu key={v.title} image={v.image} title={v.title}></CardMenu>))}
-                    </SimpleGrid>
-                </Container>
-            </Box>
-
+           <Center>
+                <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>  
+                 
+                    
+                    {dataCymbals.map((s: any) => (<CymbalsMenu key={s.name} description={s.description} name={s.name} price={s.price} image={s.image}></CymbalsMenu>))}
+                    
+                </SimpleGrid>
+          </Center>
         </Stack>
 
 

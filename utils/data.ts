@@ -38,7 +38,7 @@ export const dataMenus = [
 ]
 
 export const dataCymbals = [
-    { menu: 'Comida', categorie: 'Entradas', name: 'Crudo de atun', price: '350', description: 'aljdkhasldjkh jkhdsakjf askjdhask fdhdskjh' },
+    { menu: 'Comida', categorie: 'Entradas', name: 'Crudo de atun', price: '350', description: 'aljdkhasldjkh jkhdsakjf askjdhask fdhdskjh'},
     { menu: 'Comida', categorie: 'Entradas', name: 'Crudo de atun', price: '350', description: 'aljdkhasldjkh jkhdsakjf askjdhask fdhdskjh' },
     { menu: 'Comida', categorie: 'Entradas', name: 'Crudo de atun', price: '350', description: 'aljdkhasldjkh jkhdsakjf askjdhask fdhdskjh' },
     { menu: 'Comida', categorie: 'Entradas', name: 'Crudo de atun', price: '350', description: 'aljdkhasldjkh jkhdsakjf askjdhask fdhdskjh' },
@@ -53,8 +53,9 @@ export const dataCymbals = [
 ]
 
 export const imageCymbals = [
-    { menu: 'Comida', categorie: 'Entradas', image: '' },
-    { menu: 'Comida', categorie: 'Entradas', image: '' },
-    { menu: 'Comida', categorie: 'Entradas', image: '' },
-    { menu: 'Comida', categorie: 'Entradas', image: '' }
+    { menu: 'Comida', categorie: 'Entradas', image: 'https://scontent.ftij2-1.fna.fbcdn.net/v/t39.30808-6/294053776_3208482269366547_6874948848904432638_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeGQc1c6b_wRjxqsJCkMHVKF5kKvyS13-2XmQq_JLXf7ZVVNZg_brFoXQ-tPcqYMnFWDdk38Zamgmmh_tXBRkagm&_nc_ohc=TEO88CN1jIgAX-bOzM7&_nc_ht=scontent.ftij2-1.fna&oh=00_AfDgDAYjGtaalNHJG7_0uee0yIiMN_W0vSpI0ucOfcwppw&oe=6369E6DF' }, 
+    { menu: 'Comida', categorie: 'Entradas', image: 'https://scontent.ftij2-1.fna.fbcdn.net/v/t39.30808-6/294053776_3208482269366547_6874948848904432638_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeGQc1c6b_wRjxqsJCkMHVKF5kKvyS13-2XmQq_JLXf7ZVVNZg_brFoXQ-tPcqYMnFWDdk38Zamgmmh_tXBRkagm&_nc_ohc=TEO88CN1jIgAX-bOzM7&_nc_ht=scontent.ftij2-1.fna&oh=00_AfDgDAYjGtaalNHJG7_0uee0yIiMN_W0vSpI0ucOfcwppw&oe=6369E6DF' },
+    { menu: 'Comida', categorie: 'Entradas', image: 'https://scontent.ftij2-1.fna.fbcdn.net/v/t39.30808-6/294053776_3208482269366547_6874948848904432638_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeGQc1c6b_wRjxqsJCkMHVKF5kKvyS13-2XmQq_JLXf7ZVVNZg_brFoXQ-tPcqYMnFWDdk38Zamgmmh_tXBRkagm&_nc_ohc=TEO88CN1jIgAX-bOzM7&_nc_ht=scontent.ftij2-1.fna&oh=00_AfDgDAYjGtaalNHJG7_0uee0yIiMN_W0vSpI0ucOfcwppw&oe=6369E6DF' },
+    { menu: 'Comida', categorie: 'Entradas', image: 'https://scontent.ftij2-1.fna.fbcdn.net/v/t39.30808-6/294053776_3208482269366547_6874948848904432638_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeGQc1c6b_wRjxqsJCkMHVKF5kKvyS13-2XmQq_JLXf7ZVVNZg_brFoXQ-tPcqYMnFWDdk38Zamgmmh_tXBRkagm&_nc_ohc=TEO88CN1jIgAX-bOzM7&_nc_ht=scontent.ftij2-1.fna&oh=00_AfDgDAYjGtaalNHJG7_0uee0yIiMN_W0vSpI0ucOfcwppw&oe=6369E6DF' },
+    { menu: 'Comida', categorie: 'Entradas', image: 'https://scontent.ftij2-1.fna.fbcdn.net/v/t39.30808-6/294053776_3208482269366547_6874948848904432638_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeGQc1c6b_wRjxqsJCkMHVKF5kKvyS13-2XmQq_JLXf7ZVVNZg_brFoXQ-tPcqYMnFWDdk38Zamgmmh_tXBRkagm&_nc_ohc=TEO88CN1jIgAX-bOzM7&_nc_ht=scontent.ftij2-1.fna&oh=00_AfDgDAYjGtaalNHJG7_0uee0yIiMN_W0vSpI0ucOfcwppw&oe=6369E6DF' },
 ]
