@@ -1,5 +1,7 @@
+/* an array of objects to display the menu with its image, titles and categories*/
 export const dataMenus = [
     {
+        
         title: 'Comida',
         image: 'https://gh-onboarding.s3.amazonaws.com/almatierra-restaurant-noche_5cdc0a98f5.png',
         categories: ['Entradas', 'Ensaladas y Sopas', 'Para Compartir', 'Platos Fuertes', 'Postres']
