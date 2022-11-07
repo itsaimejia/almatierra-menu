@@ -11,7 +11,6 @@ interface ButtonMenuOptionProps {
 }
 export const ButtonMenuOption = ({ title, fontSize, active }: ButtonMenuOptionProps) => {
     const router = useRouter()
-    console.log(router.asPath)
     const getCategories = () => dataMenus.find(d => normilizeRoute(d.title) === normilizeRoute(title))
     const firstChild = () => getCategories()?.categories[0].toString()
     return (
@@ -20,7 +19,7 @@ export const ButtonMenuOption = ({ title, fontSize, active }: ButtonMenuOptionPr
             styles={() => ({
                 root: {
                     borderRadius: '15px',
-                    backgroundColor: active ? '#D9D9D9' : router.asPath === `/menu/${normilizeRoute(title)}/${normilizeRoute(firstChild() ?? '')}` ? '#D9D9D9' : '#B2945E',
+                    backgroundColor: active ? '#D9D9D9' : router.asPath.includes(normilizeRoute(title)) ? '#D9D9D9' : '#B2945E',
                     color: 'black',
                     fontSize: fontSize,
                     ":hover": { backgroundColor: '#CCB182' }
