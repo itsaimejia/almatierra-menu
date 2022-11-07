@@ -1,3 +1,4 @@
+/* Importing the components from the mantine and other files. */
 import { Container, Box, SimpleGrid } from "@mantine/core";
 import { dataCymbals } from '../../../utils/data';
 import LayoutMenu from "../../../components/LayoutMenu";
@@ -5,7 +6,7 @@ import { CymbalsMenu } from "../../../components/CymbalsMenu";
 import { useRouter } from "next/router";
 
 
-
+/* A function that returns the layout of the page. */
 export default function IdCategorie() {
     const router = useRouter()
     let dataToCymbals: any = []
@@ -21,6 +22,8 @@ export default function IdCategorie() {
     }
     return (
         <LayoutMenu>
+             {/* A component from the Mantine library. It is a component that allows you to add a box
+            with a padding of xl.  */}
             <Box
                 sx={(theme) => ({
 
@@ -28,9 +31,13 @@ export default function IdCategorie() {
                     padding: theme.spacing.xl,
                 })}
             >
-                <Container >
-                    <SimpleGrid cols={2} breakpoints={[{ maxWidth: 600, cols: 1 }, { maxWidth: 755, cols: 1 }, { maxWidth: 980, cols: 2 }]}>
-                        {dataToCymbals.map((dt: any, i: number) => <CymbalsMenu key={i} cymbals={dt} image={""} />)}
+
+                <Container>
+                    {/* SimpleGrid Styles */}
+                    <SimpleGrid
+                    cols={2} breakpoints={[{ maxWidth: 600, cols: 1 }, { maxWidth: 755, cols: 1 }, { maxWidth: 980, cols: 2 }]}>
+                        {/* Mapping the dataToCymbals array and returning the CymbalsMenu component. */
+                         dataToCymbals.map((dt: any, i: number) => <CymbalsMenu key={i} cymbals={dt} image={""} />)}
                     </SimpleGrid>
                 </Container>
             </Box>
