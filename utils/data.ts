@@ -15,7 +15,7 @@ export const dataMenus = [
     {
         title: 'Bebidas',
         image:
-            'https://scontent.ftij2-1.fna.fbcdn.net/v/t39.30808-6/274871680_3106982496183192_5762296052679277238_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeGbHo-j1dxx3T9m6oSv_B8LDBLpLDL2pXEMEuksMvalccC7mwm5MInc5jkGTvMO-n99MVhQKDLCL9BxxbAURtVe&_nc_ohc=7aNWFdge7uwAX-t4caa&_nc_ht=scontent.ftij2-1.fna&oh=00_AfD_xfXAiAmg0KNJrUfAJTLfKmuAIOHPdM5o1SdMvEMX_A&oe=636445F5',
+            'https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/im_landscape_100/public/2022-05/bebidas-refrescantes-sin-alcohol%C2%A9iStock.jpg.webp?itok=474pDi5b',
         categories: ['Bebidas Sin Alcohol']
     },
     {

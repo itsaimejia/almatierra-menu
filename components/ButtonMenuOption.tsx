@@ -15,7 +15,7 @@ interface ButtonMenuOptionProps {
 export const ButtonMenuOption = ({ title, fontSize, active }: ButtonMenuOptionProps) => {
     /* A hook that is provided by Next.js. It allows you to access the router object. */
     const router = useRouter()
-    console.log(router.asPath)
+
     /**
      * It takes the title of the current page and finds the corresponding menu item in the dataMenus
      * array
@@ -35,7 +35,7 @@ export const ButtonMenuOption = ({ title, fontSize, active }: ButtonMenuOptionPr
             styles={() => ({
                 root: {
                     borderRadius: '15px',
-                    backgroundColor: active ? '#D9D9D9' : router.asPath === `/menu/${normilizeRoute(title)}/${normilizeRoute(firstChild() ?? '')}` ? '#D9D9D9' : '#B2945E',
+                    backgroundColor: active ? '#D9D9D9' : router.asPath.includes(normilizeRoute(title)) ? '#D9D9D9' : '#B2945E',
                     color: 'black',
                     fontSize: fontSize,
                     ":hover": { backgroundColor: '#CCB182' }

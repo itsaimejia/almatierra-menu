@@ -16,12 +16,20 @@ export const ButtonCategorieOption = ({ title, menu, fontSize, ...others }: Butt
     const router = useRouter()
     /* Returning a button component with the props that it is receiving. */
     return (
-        <Button sx={{ display: 'inline-block', position: 'relative', verticalAlign: 'bottom', margin: '5px' }} 
-        
-        onClick={() => router.push(`/menu/${normilizeRoute(menu)}/${normilizeRoute(title)}`)} 
-        /* A function that is being passed to the Button component as a prop. */
-        styles={() => ({ root: { borderRadius: '15px', backgroundColor: router.asPath === `/menu/${normilizeRoute(menu)}/${normilizeRoute(title)}` ? '#D9D9D9' : '#B2945E', color: 'black', fontSize: fontSize, ":hover": { backgroundColor: '#CCB182' } } })}>
-        {/* A prop that is being passed to the Button component. */}
-        {title}</Button>
+
+        <Button
+            sx={{ display: 'inline-block', position: 'relative', verticalAlign: 'bottom', margin: '5px' }}
+            onClick={() => router.push(`/menu/${normilizeRoute(menu)}/${normilizeRoute(title)}`)}
+             /* A function that is being passed to the Button component as a prop. */
+            styles={() => ({
+                root: {
+                    borderRadius: '15px',
+                    backgroundColor: router.asPath.includes(normilizeRoute(title)) ? '#D9D9D9' : '#B2945E',
+                    color: 'black', fontSize: fontSize, ":hover": { backgroundColor: '#CCB182' }
+                }
+            })}>
+            {/* A prop that is being passed to the Button component. */}
+            {title}
+        </Button>
     )
 }
