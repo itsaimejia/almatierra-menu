@@ -1,8 +1,11 @@
 import { Carousel } from '@mantine/carousel'
-import { Center, Container, Image, SimpleGrid, Stack } from '@mantine/core'
+import { Button, Center, Container, Image, SimpleGrid, Stack } from '@mantine/core'
 import { CardMenu } from '../../components/CardMenu'
 import React from 'react'
 import { dataMenus } from '../../utils/data'
+import { useRouter } from 'next/router'
+import { getDoc, doc, collection, getDocs } from 'firebase/firestore'
+import { database } from '../../firebase/firebase'
 
 
 const images = [
@@ -22,36 +25,20 @@ const images = [
 ]
 export default function Home() {
 
+    const getDataElement = async () => {
+        let res: any = []
+        const docs = await getDocs(collection(database, "menu"));
+        docs.forEach((doc) => {
+            res.push(doc.data());
+        })
+    if(!docs.empty){
+        console.log("Document data: ", res);
+    }else{
+        console.log("no such document!")
+    }
+}
+
     return (
-        <Stack sx={{ backgroundColor: '#B2945E' }}>
-            <Carousel
-                sx={{ minWidth: '100%', maxHeight: '40%', backgroundColor: 'black' }}
-                slideSize="70%"
-                slideGap="md"
-                loop
-                withIndicators>
-                {images.map((i: any) => {
-
-                    return (
-                        <Carousel.Slide key={i.alt}>
-                            <Center>
-                                <Image
-                                    sx={{ maxWidth: 280, maxHeight: '40%' }}
-                                    src={i.src}
-                                    alt="asxas"
-                                />
-                            </Center>
-                        </Carousel.Slide>)
-                })}
-            </Carousel>
-            <div>
-                <Container >
-                    <SimpleGrid cols={3} breakpoints={[{ maxWidth: 600, cols: 1 }, { maxWidth: 755, cols: 2 }, { maxWidth: 980, cols: 3 }]}>
-                        {dataMenus.map((v) => (<CardMenu key={v.title} image={v.image} title={v.title}></CardMenu>))}
-                    </SimpleGrid>
-                </Container>
-            </div>
-        </Stack>
-
+        <Button onClick={() => getDataElement()}>datos</Button>
     )
 }
