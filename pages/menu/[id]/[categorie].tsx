@@ -9,6 +9,7 @@ import { normilizeRoute } from "../../../static/onStrings";
 
 /* A function that returns the layout of the page. */
 export default function IdCategorie() {
+
     const router = useRouter()
     /*Getting the third element of the array.*/
     const currentMenu = router.asPath.split('/')[2]
@@ -19,6 +20,7 @@ export default function IdCategorie() {
 
     /*Getting all categories from the data file.*/
     const cymbalsPerCatergorie = dataCymbals.filter((c: any) => (normilizeRoute(c.menu) === currentMenu) && (normilizeRoute(c.categorie) === currentCategorie))
+
 
     let dataToCymbals: any = []
     let each3: any = []
@@ -50,7 +52,9 @@ export default function IdCategorie() {
                     <SimpleGrid
                         cols={2} breakpoints={[{ maxWidth: 1000, cols: 1 }]}>
                         {/* Mapping the dataToCymbals array and returning the CymbalsMenu component. */
+
                             dataToCymbals.map((dt: any, i: number) => <CymbalsMenu key={i} cymbals={dt} image={imagesCategorie[i]} />)}
+
                     </SimpleGrid>
                 </Container>
             </Box>

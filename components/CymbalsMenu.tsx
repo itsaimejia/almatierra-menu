@@ -21,6 +21,7 @@ export function CymbalsMenu({ cymbals, image }: CymbalMenuProps) {
                 <Stack>
                     {/* Se separa por las categorias pero esto se debe poner afuera para que no genere imagenes sin informacion  {cymbals.find( (d: any, i: number) => d.categorie == normilizeRoute(findCategories) ?  (<CymbalDetail key={i} name={d.name} description={d.description} price={d.price} />)  : console.log(""))} */}
                     {cymbals.map((c: any, i: number) => (<CymbalDetail key={i} name={c.name} description={c.description} price={c.price} />))}
+
                 </Stack>
             </Grid.Col>
 
