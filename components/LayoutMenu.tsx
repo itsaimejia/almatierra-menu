@@ -26,15 +26,15 @@ export default function LayoutMenu({ children }: { children: any }) {
                 <Group position="center" spacing="xl">
                     {/* Mapping the dataMenus array and returning a ButtonMenuOption component for each
                     element of the array. */
-                    dataMenus.map((m) => <ButtonMenuOption key={m.title} title={m.title} fontSize={'1.8rem'} active={false} />)}
+                        dataMenus.map((m) => <ButtonMenuOption key={m.title} title={m.title} fontSize={'1.8rem'} active={false} />)}
                 </Group>
             </Container>
-           {/* A component that is creating a divider and have a black color. */ }
+            {/* A component that is creating a divider and have a black color. */}
             <Divider color="dark" />
             {/* Getting the categories property of the object that is returned by the
             getCategories function.  */}
             <CategoriesScroll array={getCategories()?.categories ?? []} />
-           {/* A prop that is passed to the LayoutMenu component. */}
+            {/* A prop that is passed to the LayoutMenu component. */}
             {children}
         </Stack>
 
