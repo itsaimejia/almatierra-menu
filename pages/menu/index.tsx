@@ -8,9 +8,12 @@ import { useRouter } from 'next/router';
 
 const images = [
     {
-        alt: 'sdfasd',
-        src: 'https://scontent.fmxl1-1.fna.fbcdn.net/v/t39.30808-6/314558181_549765833819081_6417361056919649367_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeFlY3f7F7YdkRPEXjA5gkuyULOeXAxHq4tQs55cDEeri7wLAc25OEfdmuaPgElfMhqGOgD4IbVNn5NTG-AJUqk-&_nc_ohc=IaJMWumN2GsAX9XMebm&_nc_ht=scontent.fmxl1-1.fna&oh=00_AfBBJv4gY-j90EOXhMhfFSWzuIIo1wMJ5uwe0MzdqLxWzg&oe=636CBA48'
-    },
+        alt: 'Banner 1',
+        src: 'https://firebasestorage.googleapis.com/v0/b/almatierra-7796b.appspot.com/o/banner1.jpg?alt=media&token=1d8dbd78-b04f-4f3d-ae08-344860dd2fa7'
+    }, {
+        alt: 'Banner 2',
+        src: 'https://firebasestorage.googleapis.com/v0/b/almatierra-7796b.appspot.com/o/banner2.jpg?alt=media&token=6b3fb746-2b34-43d0-8a7c-235d4da10e36'
+    }
 
 ]
 export default function Home() {
@@ -40,7 +43,7 @@ export default function Home() {
             <div>
                 <Container >
                     <SimpleGrid cols={3} breakpoints={[{ maxWidth: 600, cols: 1 }, { maxWidth: 755, cols: 2 }, { maxWidth: 980, cols: 3 }]}>
-                        {dataMenus.map((v) => (<CardMenu key={v.title} image={v.image} title={v.title}></CardMenu>))}
+                        {dataMenus.map((v: any, i: number) => (<CardMenu key={i} image={v.image} title={v.title}></CardMenu>))}
                     </SimpleGrid>
                 </Container>
             </div>
