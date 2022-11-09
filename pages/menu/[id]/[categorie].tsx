@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 /* A function that returns the layout of the page. */
 export default function IdCategorie() {
     const router = useRouter()
+    console.log(router.asPath)
     let dataToCymbals: any = []
     let each3: any = []
     {
@@ -22,7 +23,7 @@ export default function IdCategorie() {
     }
     return (
         <LayoutMenu>
-             {/* A component from the Mantine library. It is a component that allows you to add a box
+            {/* A component from the Mantine library. It is a component that allows you to add a box
             with a padding of xl.  */}
             <Box
                 sx={(theme) => ({
@@ -32,12 +33,12 @@ export default function IdCategorie() {
                 })}
             >
 
-                <Container>
+                <Container sx={{ maxWidth: '1200px' }}>
                     {/* SimpleGrid Styles */}
                     <SimpleGrid
-                    cols={2} breakpoints={[{ maxWidth: 600, cols: 1 }, { maxWidth: 755, cols: 1 }, { maxWidth: 980, cols: 2 }]}>
+                        cols={2} breakpoints={[{ maxWidth: 1000, cols: 1 }]}>
                         {/* Mapping the dataToCymbals array and returning the CymbalsMenu component. */
-                         dataToCymbals.map((dt: any, i: number) => <CymbalsMenu key={i} cymbals={dt} image={""} />)}
+                            dataToCymbals.map((dt: any, i: number) => <CymbalsMenu key={i} cymbals={dt} image={""} />)}
                     </SimpleGrid>
                 </Container>
             </Box>

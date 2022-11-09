@@ -20,11 +20,11 @@ export const ButtonCategorieOption = ({ title, menu, fontSize, ...others }: Butt
         <Button
             sx={{ display: 'inline-block', position: 'relative', verticalAlign: 'bottom', margin: '5px' }}
             onClick={() => router.push(`/menu/${normilizeRoute(menu)}/${normilizeRoute(title)}`)}
-             /* A function that is being passed to the Button component as a prop. */
+            /* A function that is being passed to the Button component as a prop. */
             styles={() => ({
                 root: {
                     borderRadius: '15px',
-                    backgroundColor: router.asPath.includes(normilizeRoute(title)) ? '#D9D9D9' : '#B2945E',
+                    backgroundColor: router.asPath.includes(`/menu/${normilizeRoute(menu)}/${normilizeRoute(title)}`) ? '#D9D9D9' : '#B2945E',
                     color: 'black', fontSize: fontSize, ":hover": { backgroundColor: '#CCB182' }
                 }
             })}>
