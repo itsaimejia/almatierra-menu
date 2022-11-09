@@ -10,8 +10,8 @@ interface CymbalDetailProps {
 export const CymbalDetail = ({ name, description, price }: CymbalDetailProps) => {
     return (
         <Box sx={{ width: '100%' }}>
-            <Stack >
-                <Group position='apart' grow>
+            <Stack sx={{ textAlign: 'left' }}>
+                <Group position='apart' >
                     <Text weight={700}>
                         {name}
                     </Text>
@@ -23,7 +23,6 @@ export const CymbalDetail = ({ name, description, price }: CymbalDetailProps) =>
                 <Text sx={{ margin: 0 }} size={'sm'} color={'#4D4D4D'}>
                     {description}
                 </Text>
-
             </Stack>
         </Box>
     )
