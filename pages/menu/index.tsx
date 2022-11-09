@@ -3,6 +3,7 @@ import { Center, Container, Image, SimpleGrid, Stack } from '@mantine/core'
 import { CardMenu } from '../../components/CardMenu'
 import React from 'react'
 import { dataMenus } from '../../utils/data'
+import { useRouter } from 'next/router';
 
 
 const images = [
@@ -14,6 +15,8 @@ const images = [
 ]
 export default function Home() {
 
+    const router = useRouter()
+    console.log(router.asPath)
     return (
         <Stack sx={{ backgroundColor: '#B2945E' }}>
             <Carousel
@@ -47,3 +50,4 @@ export default function Home() {
 
     )
 }
+
