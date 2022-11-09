@@ -5,58 +5,29 @@ import { normilizeRoute } from '../static/onStrings';
 import { CymbalDetail } from './CymbalDetail';
 import { imageCymbals } from '../utils/data'
 
-const useStyles = createStyles((theme, _params, getRef) => {
-    const image = getRef('image')
-    return {
-        image: {
-            ref: image,
-
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundSize: 'cover',
-            transition: 'transform 500ms ease',
-            backgroundPosition: 'center',
-
-        },
-
-    }
-})
-
 interface CymbalMenuProps {
     cymbals: Array<any>
     image: string;
-    menus: string
+
 }
-export function CymbalsMenu({ cymbals, image, menus }: CymbalMenuProps) {
+export function CymbalsMenu({ cymbals, image }: CymbalMenuProps) {
     const showImage = useMediaQuery('(min-width: 600px)');
-    const { classes, theme } = useStyles();
-
-    const router = useRouter()
-    /*Getting the third element of the array.*/
-    const findCategories = router.asPath.split('/')[3]
-
-    /*Getting all categories from the data file.*/
-    const categories = cymbals.map( (c: any) => normilizeRoute(c.categorie))
-
-    let categorieSelected : any 
-    /*Assigning the categorie  in categorieSelected.*/
-    categories.forEach( (cat) => cat == findCategories ? categorieSelected = cat : "")
 
     return <>{
+        showImage ? (<Grid sx={{ paddingBottom: '15px' }}>
 
-        showImage ? categorieSelected == findCategories ? (<Grid >
-            <Grid.Col span={4}><Image height={'260px'} src={image} alt={'sadas'}></Image></Grid.Col>
-            <Grid.Col span={8}>
+            <Grid.Col span={5}><Image height={'270px'} src={image} alt={'sadas'}></Image></Grid.Col>
+            <Grid.Col span={7}>
                 <Stack>
-                    {cymbals.map((c: any, i: number) => normilizeRoute(c.categorie) == categorieSelected ? (<CymbalDetail key={i} name={c.name} description={c.description} price={c.price} />) : "")} 
+                    {/* Se separa por las categorias pero esto se debe poner afuera para que no genere imagenes sin informacion  {cymbals.find( (d: any, i: number) => d.categorie == normilizeRoute(findCategories) ?  (<CymbalDetail key={i} name={d.name} description={d.description} price={d.price} />)  : console.log(""))} */}
+                    {cymbals.map((c: any, i: number) => (<CymbalDetail key={i} name={c.name} description={c.description} price={c.price} />))}
+
                 </Stack>
             </Grid.Col>
 
-        </Grid>) : ""  : (
+        </Grid>) : (
             <Stack>
-                {cymbals.map((c: any, i: number) => normilizeRoute(c.categorie) == findCategories ? (<CymbalDetail key={i} name={c.name} description={c.description} price={c.price} />) : "")} 
+                {cymbals.map((c: any, i: number) => (<CymbalDetail key={i} name={c.name} description={c.description} price={c.price} />))}
             </Stack>
         )
     }</>

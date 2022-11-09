@@ -16,7 +16,7 @@ export const CymbalDetail = ({ name, description, price }: CymbalDetailProps) =>
                         {name}
                     </Text>
                     <Text weight={700} >
-                        {price}
+                        ${price}
 
                     </Text>
                 </Group>

@@ -109,7 +109,7 @@ export const dataCymbals = [
     { menu: 'Desayunos', categorie: 'Té', name: 'Jazmin', price: '50', description: '' },
     { menu: 'Mixologia', categorie: 'Mixologia de la casa', name: 'Carajillo', price: '210', description: 'Licor 43, cerveza artesanal y espresso' },
     { menu: 'Mixologia', categorie: 'Mixologia de la casa', name: 'La chingadera', price: '210', description: 'Jarabe de gengibre, agua tonica y cocacola' },
-    { menu: 'Mixologia', categorie: 'Mixologia de la casa', name: 'La chingadera', price: '210', description: 'Jarabe de gengibre, agua tonica y cocacola' }, 
+    { menu: 'Mixologia', categorie: 'Mixologia de la casa', name: 'La chingadera', price: '210', description: 'Jarabe de gengibre, agua tonica y cocacola' },
     { menu: 'Mixologia', categorie: 'Mixologia de la casa', name: 'La chingadera', price: '210', description: 'Jarabe de gengibre, agua tonica y cocacola' }, { menu: 'Mixologia', categorie: 'Mixologia de la casa', name: 'La chingadera', price: '210', description: 'Jarabe de gengibre, agua tonica y cocacola' }, { menu: 'Mixologia', categorie: 'Mixologia de la casa', name: 'La chingadera', price: '210', description: 'Jarabe de gengibre, agua tonica y cocacola' }, { menu: 'Mixologia', categorie: 'Mixologia de la casa', name: 'La chingadera', price: '210', description: 'Jarabe de gengibre, agua tonica y cocacola' },
     { menu: 'Mixologia', categorie: 'Coctelería Clásica', name: 'Abe', price: '190', description: '' },
     { menu: 'Mixologia', categorie: 'Coctelería Clásica', name: 'Abe', price: '190', description: '' },
