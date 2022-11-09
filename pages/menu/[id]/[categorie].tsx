@@ -1,6 +1,6 @@
 /* Importing the components from the mantine and other files. */
 import { Container, Box, SimpleGrid } from "@mantine/core";
-import { dataCymbals } from '../../../utils/data';
+import { dataCymbals, imageCymbals } from '../../../utils/data';
 import LayoutMenu from "../../../components/LayoutMenu";
 import { CymbalsMenu } from "../../../components/CymbalsMenu";
 import { useRouter } from "next/router";
@@ -9,6 +9,16 @@ import { normilizeRoute } from "../../../static/onStrings";
 
 /* A function that returns the layout of the page. */
 export default function IdCategorie() {
+
+    const router = useRouter()
+    /*Getting the third element of the array.*/
+    const findCategories = router.asPath.split('/')[3]
+
+    let imagesCategorie : any = []
+    imageCymbals.forEach( (i: any, n: number) => normilizeRoute(i.categorie) == findCategories ? imagesCategorie[n] = i.image : "" )
+
+    console.log(imagesCategorie)
+
     let dataToCymbals: any = []
     let each3: any = []
     {
@@ -37,7 +47,7 @@ export default function IdCategorie() {
                     <SimpleGrid
                         cols={2} breakpoints={[{ maxWidth: 1000, cols: 1 }]}>
                         {/* Mapping the dataToCymbals array and returning the CymbalsMenu component. */
-                            dataToCymbals.map((dt: any, i: number) => <CymbalsMenu key={i} cymbals={dt} image={""} menus={""}/>)}
+                            dataToCymbals.map((dt: any, i: number) => <CymbalsMenu key={i} cymbals={dt} image={imagesCategorie[i]} menus={""}/>)}
                     </SimpleGrid>
                 </Container>
             </Box>
