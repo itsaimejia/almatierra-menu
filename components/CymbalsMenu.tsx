@@ -2,6 +2,7 @@
 import {  Text, Group, createStyles, Stack } from '@mantine/core';
 import { normilizeRoute } from '../static/onStrings';
 import { dataCymbals } from '../utils/data';
+import { CymbalDetail } from './CymbalDetail';
 
 
 
@@ -60,7 +61,8 @@ export function CymbalsMenu({  name, description , price,image}: Menu) {
             <div className={classes.image} style={{ backgroundImage: `url(${image})` }} />
             <Stack>
                 
-               
+                {dataCymbals.map((j) => (<CymbalDetail key={j.name} description={j.description} name={j.name} price={j.price} ></CymbalDetail>))}
+           
 
             </Stack>
                 
