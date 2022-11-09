@@ -13,7 +13,8 @@ export default function LayoutMenu({ children }: { children: any }) {
     const router = useRouter()
     /*Getting the second element of the array.*/
     const currentMenu = router.asPath.split('/')[2]
-    console.log(currentMenu)
+    
+    //console.log(currentMenu)
     /**
      * It returns the first element of the dataMenus array that has a title property equal to the
      * currentMenu variable.

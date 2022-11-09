@@ -4,18 +4,17 @@ import { dataCymbals } from '../../../utils/data';
 import LayoutMenu from "../../../components/LayoutMenu";
 import { CymbalsMenu } from "../../../components/CymbalsMenu";
 import { useRouter } from "next/router";
+import { normilizeRoute } from "../../../static/onStrings";
 
 
 /* A function that returns the layout of the page. */
 export default function IdCategorie() {
-    const router = useRouter()
-    console.log(router.asPath)
     let dataToCymbals: any = []
     let each3: any = []
     {
         dataCymbals.map((d: any, i: number) => {
             each3.push(d)
-            if ((i + 1) % 3 === 0) {
+            if ((i + 1) % 3 === 0 ) {
                 dataToCymbals.push(each3)
                 each3 = []
             }
@@ -38,7 +37,7 @@ export default function IdCategorie() {
                     <SimpleGrid
                         cols={2} breakpoints={[{ maxWidth: 1000, cols: 1 }]}>
                         {/* Mapping the dataToCymbals array and returning the CymbalsMenu component. */
-                            dataToCymbals.map((dt: any, i: number) => <CymbalsMenu key={i} cymbals={dt} image={""} />)}
+                            dataToCymbals.map((dt: any, i: number) => <CymbalsMenu key={i} cymbals={dt} image={""} menus={""}/>)}
                     </SimpleGrid>
                 </Container>
             </Box>

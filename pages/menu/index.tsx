@@ -15,8 +15,6 @@ const images = [
 ]
 export default function Home() {
 
-    const router = useRouter()
-    console.log(router.asPath)
     return (
         <Stack sx={{ backgroundColor: '#B2945E' }}>
             <Carousel
