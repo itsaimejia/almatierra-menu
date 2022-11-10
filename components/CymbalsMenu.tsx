@@ -1,48 +1,33 @@
 import { Group, createStyles, Stack, Image, Grid } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
+import { useRouter } from 'next/router';
+import { normilizeRoute } from '../static/onStrings';
 import { CymbalDetail } from './CymbalDetail';
-
-const useStyles = createStyles((theme, _params, getRef) => {
-    const image = getRef('image')
-    return {
-        image: {
-            ref: image,
-
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundSize: 'cover',
-            transition: 'transform 500ms ease',
-            backgroundPosition: 'center',
-
-        },
-
-    }
-})
+import { imageCymbals } from '../utils/data'
 
 interface CymbalMenuProps {
     cymbals: Array<any>
     image: string;
+
 }
 export function CymbalsMenu({ cymbals, image }: CymbalMenuProps) {
     const showImage = useMediaQuery('(min-width: 600px)');
-    const { classes, theme } = useStyles();
-
 
     return <>{
-        showImage ? (<Grid >
+        showImage ? (<Grid sx={{ paddingBottom: '15px' }}>
 
-            <Grid.Col span={4}><Image height={'260px'} src={'https://firebasestorage.googleapis.com/v0/b/almatierra-7796b.appspot.com/o/entrada1.jpg?alt=media&token=4e3cdfa1-7441-4856-a269-b773cf8400dd'} alt={'sadas'}></Image></Grid.Col>
-            <Grid.Col span={8}>
+            <Grid.Col span={5}><Image height={'270px'} src={image} alt={'sadas'}></Image></Grid.Col>
+            <Grid.Col span={7}>
                 <Stack>
-                    {cymbals.map((c: any) => (<CymbalDetail key={c.name} name={c.name} description={c.description} price={c.price} />))}
+                    {/* Se separa por las categorias pero esto se debe poner afuera para que no genere imagenes sin informacion  {cymbals.find( (d: any, i: number) => d.categorie == normilizeRoute(findCategories) ?  (<CymbalDetail key={i} name={d.name} description={d.description} price={d.price} />)  : console.log(""))} */}
+                    {cymbals.map((c: any, i: number) => (<CymbalDetail key={i} name={c.name} description={c.description} price={c.price} />))}
+
                 </Stack>
             </Grid.Col>
 
         </Grid>) : (
             <Stack>
-                {cymbals.map((c: any) => (<CymbalDetail key={c.name} name={c.name} description={c.description} price={c.price} />))}
+                {cymbals.map((c: any, i: number) => (<CymbalDetail key={i} name={c.name} description={c.description} price={c.price} />))}
             </Stack>
         )
     }</>
