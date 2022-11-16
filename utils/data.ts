@@ -1,38 +1,39 @@
 export const dataMenus = [
     {
         title: 'Comida',
-        image: 'https://gh-onboarding.s3.amazonaws.com/almatierra-restaurant-noche_5cdc0a98f5.png',
+        image: 'https://firebasestorage.googleapis.com/v0/b/almatierra-7796b.appspot.com/o/menu-comida.png?alt=media&token=e5d5e7b4-4b6f-4c7f-8b03-3d3bd9a029a7',
+        banner: 'https://firebasestorage.googleapis.com/v0/b/almatierra-7796b.appspot.com/o/Bannercomida.jpg?alt=media&token=3905e73a-79af-44df-acbd-841c79e08c5c',
         categories: ['Entradas', 'Ensaladas y Sopas', 'Para compartir', 'Platos Fuertes', 'Postres']
     },
     {
         title: 'Desayunos',
         image:
-            'https://gh-onboarding.s3.amazonaws.com/medium_ojo-azul-web-0004-img-0971_9be7a64408.jpg',
+            'https://firebasestorage.googleapis.com/v0/b/almatierra-7796b.appspot.com/o/menu-desayuno.jpg?alt=media&token=847a0b60-adb5-4b2c-94ed-1e150e1c2af5',
         categories: ['Para Despertar', 'Para compartir', 'Omelets', 'Chilaquiles', 'Lo Dulce']
     },
     {
         title: 'Bebidas',
         image:
-            'https://scontent.ftij2-1.fna.fbcdn.net/v/t39.30808-6/273390063_3091783701036405_2112001916242411731_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=730e14&_nc_ohc=pe03LPlRy3QAX-o-dym&_nc_ht=scontent.ftij2-1.fna&oh=00_AfCSIhiNGiFXlY0cdUudfDFSTVqtaka92pZViVWON6WWng&oe=636F7EE8',
+            'https://firebasestorage.googleapis.com/v0/b/almatierra-7796b.appspot.com/o/menu-bebidas.jpg?alt=media&token=a493056d-e2c8-42be-b1a9-00558dc91b9b',
         categories: ['Bebidas Sin Alcohol']
     },
     {
         title: 'Cafetería',
         image:
-            'https://scontent.ftij2-1.fna.fbcdn.net/v/t39.30808-6/278501684_3139129839635124_2699534012152403975_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_ohc=EUKDKT7L1R0AX-dhle5&_nc_ht=scontent.ftij2-1.fna&oh=00_AfDqPi0m9oz5KhZ7BM3py7NttgB_bWDaxfq6b6ujC3fCoA&oe=636F87A1',
+            'https://firebasestorage.googleapis.com/v0/b/almatierra-7796b.appspot.com/o/menu-cafeteria.jpg?alt=media&token=22a2faaf-b4c5-4c6f-a15d-99a778627b15',
         categories: ['Café', 'Té', 'Tizanas']
     },
     {
         title: 'Mixología',
         image:
-            'https://scontent.ftij2-1.fna.fbcdn.net/v/t39.30808-6/274938190_3106981999516575_5659830263868263256_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_ohc=_W8EPNwG_p4AX_tAwn6&_nc_ht=scontent.ftij2-1.fna&oh=00_AfDvukOlOYS0zFnNEGMmGstr6RspKVn6xSUreIFlbZzC2A&oe=636F119C',
+            'https://firebasestorage.googleapis.com/v0/b/almatierra-7796b.appspot.com/o/menu-mixologia.jpg?alt=media&token=4e8de5c6-d94e-4dc2-8599-6deac123c09a',
 
         categories: ['Mixología De La Casa', 'Coctelería Clásica', 'Licores Fuertes']
     },
     {
         title: 'Vinos',
         image:
-            'https://scontent.ftij2-1.fna.fbcdn.net/v/t39.30808-6/239675195_3005814209633355_6556454742958616639_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=a26aad&_nc_ohc=QK48xLpMmFIAX_2zQm4&_nc_ht=scontent.ftij2-1.fna&oh=00_AfC_tA9SnMay9oQb47WZ2aFIg2ccwAvxSYcaRUOUXsRQQg&oe=636FFAC8',
+            'https://firebasestorage.googleapis.com/v0/b/almatierra-7796b.appspot.com/o/menu-vinos.jpg?alt=media&token=30d86298-2073-46b1-ac7d-193b31471f2f',
         categories: ['Premium', 'Reserva', 'Crianza', 'Blancos', 'Rosados']
     },
 ]
