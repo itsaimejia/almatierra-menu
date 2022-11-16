@@ -16,7 +16,7 @@ const images = [
     }
 
 ]
-export default function Home() {
+export default function Menu() {
 
     return (
         <Stack sx={{ backgroundColor: '#B2945E' }}>
