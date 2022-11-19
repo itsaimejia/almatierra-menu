@@ -1,25 +1,10 @@
 import { Carousel } from '@mantine/carousel'
 import { Center, Container, Image, SimpleGrid, Stack } from '@mantine/core'
-
-import React from 'react'
-
-import { useRouter } from 'next/router';
+import React, { } from 'react'
 import { CardMenu } from '../components/CardMenu';
 import { dataMenus } from '../utils/data';
 
-
-const images = [
-  {
-    alt: 'Banner 1',
-    src: 'https://firebasestorage.googleapis.com/v0/b/almatierra-7796b.appspot.com/o/banner1.jpg?alt=media&token=1d8dbd78-b04f-4f3d-ae08-344860dd2fa7'
-  }, {
-    alt: 'Banner 2',
-    src: 'https://firebasestorage.googleapis.com/v0/b/almatierra-7796b.appspot.com/o/banner2.jpg?alt=media&token=6b3fb746-2b34-43d0-8a7c-235d4da10e36'
-  }
-
-]
-export default function Home() {
-
+export default function Home({ images }: { images: any }) {
   return (
     <Stack sx={{ backgroundColor: '#B2945E' }}>
       <Carousel
@@ -53,4 +38,19 @@ export default function Home() {
 
   )
 }
+
+export async function getStaticProps() {
+  const url = 'https://almatierra-7796b-default-rtdb.firebaseio.com/almatierra/images.json'
+  const res = await fetch(url)
+  let json = await res.json()
+  let imgs = json.filter((e: any) => e !== null)
+  let images = imgs.filter((e: any) => e.section === 'banner')
+  return {
+    props: {
+      images
+    },
+  }
+}
+
+
 
