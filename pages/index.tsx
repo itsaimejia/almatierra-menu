@@ -40,7 +40,7 @@ export default function Home({ images }: { images: any }) {
 }
 
 export async function getStaticProps() {
-  const url = 'https://almatierra-7796b-default-rtdb.firebaseio.com/almatierra/images.json'
+  const url = 'https://almatierra-7796b-default-rtdb.firebaseio.com/images.json'
   const res = await fetch(url)
   let json = await res.json()
   let imgs = json.filter((e: any) => e !== null)
