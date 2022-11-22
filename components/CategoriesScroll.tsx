@@ -1,8 +1,6 @@
 import { Center, ScrollArea } from '@mantine/core'
 import { useRouter } from 'next/router'
 import React from 'react'
-import { normilizeRoute } from '../static/onStrings'
-import { dataMenus } from '../utils/data'
 import { ButtonCategorieOption } from './ButtonCategorieOption'
 
 export const CategoriesScroll = ({ array }: { array: Array<string> }) => {
