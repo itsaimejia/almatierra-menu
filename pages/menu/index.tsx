@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react'
 export default function Menu({ images }: { images: any }) {
     const [dataMenus, setDataMenus] = useState([])
 
-
+//Este index no arroja ninguna informacion(quitarlo xd)
     useEffect(() => {
         const fetchMenus = async () => {
             const res = await fetch(`/api/menus`)
