@@ -32,6 +32,7 @@ export default function IdCategorie() {
     let imagesCategorie: any = []
     imageCymbals.forEach((i: any, n: number) => normilizeRoute(i.categorie) == currentCategorie ? imagesCategorie[n] = i.image : "")
 
+    console.log(dataCymbals)
     /*Getting all categories from the data file.*/
     const cymbalsPerCatergorie = dataCymbals.filter((c: any) => (normilizeRoute(c.menu) === currentMenu) && (normilizeRoute(c.categorie) === currentCategorie))
 
