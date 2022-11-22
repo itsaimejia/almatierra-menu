@@ -1,10 +1,21 @@
 import { Carousel } from '@mantine/carousel'
 import { Center, Container, Image, SimpleGrid, Stack } from '@mantine/core'
 import { CardMenu } from '../../components/CardMenu'
-import React from 'react'
-import { dataMenus } from '../../utils/data'
+import React, { useEffect, useState } from 'react'
 
 export default function Menu({ images }: { images: any }) {
+    const [dataMenus, setDataMenus] = useState([])
+
+
+    useEffect(() => {
+        const fetchMenus = async () => {
+            const res = await fetch(`/api/menus`)
+            const data = await res.json()
+            const titleMenusList = data.map((d: any) => d.title)
+            setDataMenus(data ?? [])
+        }
+        fetchMenus()
+    }, [])
     return (
         <Stack sx={{ backgroundColor: '#B2945E' }}>
             <Carousel
@@ -30,7 +41,7 @@ export default function Menu({ images }: { images: any }) {
             <div>
                 <Container >
                     <SimpleGrid cols={3} breakpoints={[{ maxWidth: 600, cols: 1 }, { maxWidth: 755, cols: 2 }, { maxWidth: 980, cols: 3 }]}>
-                        {dataMenus.map((v: any, i: number) => (<CardMenu key={i} image={v.image} title={v.title}></CardMenu>))}
+                        {dataMenus.map((v: any, i: number) => (<CardMenu key={i} image={v.image} title={v.title} dataMenus={dataMenus}></CardMenu>))}
                     </SimpleGrid>
                 </Container>
             </div>

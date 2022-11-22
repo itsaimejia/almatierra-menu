@@ -1,7 +1,6 @@
 import { IconArrowNarrowRight } from '@tabler/icons';
 import { Card, Text, Group, createStyles } from '@mantine/core';
 import { normilizeRoute } from '../static/onStrings';
-import { dataMenus } from '../utils/data';
 
 const useStyles = createStyles((theme, _params, getRef) => {
     const image = getRef('image');
@@ -45,14 +44,15 @@ const useStyles = createStyles((theme, _params, getRef) => {
 });
 
 interface ImageCardProps {
-    image: string;
-    title: string;
+    image: string
+    title: string
+    dataMenus: Array<any>
 }
 
-export function CardMenu({ image, title }: ImageCardProps) {
+export function CardMenu({ image, title, dataMenus }: ImageCardProps) {
     const { classes, theme } = useStyles();
 
-    const getCategories = () => dataMenus.find(d => normilizeRoute(d.title) === normilizeRoute(title))
+    const getCategories = () => dataMenus.find((d: any) => normilizeRoute(d.title) === normilizeRoute(title))
     const firstChild = () => getCategories()?.categories[0].toString()
     return (
         <Card

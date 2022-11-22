@@ -1,11 +1,11 @@
 /* Importing the components from the mantine and other files. */
 import { Container, Box, SimpleGrid } from "@mantine/core";
-import { imageCymbals } from '../../../utils/data';
 import LayoutMenu from "../../../components/LayoutMenu";
 import { CymbalsMenu } from "../../../components/CymbalsMenu";
 import { useRouter } from "next/router";
 import { normilizeRoute } from "../../../static/onStrings";
 import { useEffect, useState } from 'react';
+import { imageCymbals } from '../../../utils/data';
 
 
 
@@ -14,7 +14,6 @@ import { useEffect, useState } from 'react';
 export default function IdCategorie() {
 
     const [dataCymbals, setDataCymbals] = useState([])
-
     useEffect(() => {
         const fetchCymbals = async () => {
             const res = await fetch(`/api/cymbals`)
@@ -24,19 +23,38 @@ export default function IdCategorie() {
         fetchCymbals()
     }, [])
 
+    const [dataMenus, setDataMenus] = useState([])
+    useEffect(() => {
+        const fetchMenus = async () => {
+            const res = await fetch(`/api/menus`)
+            const data = await res.json()
+            setDataMenus(data ?? [])
+        }
+        fetchMenus()
+    }, [])
+
+    const [imageCymbals, setImageCymbals] = useState([])
+    useEffect(() => {
+        const fetchImages = async () => {
+            const res = await fetch(`/api/images`)
+            const data = await res.json()
+            const images = data.filter((i: any) => i.section === 'menu')
+            setImageCymbals(images ?? [])
+        }
+        fetchImages()
+    }, [])
+
     const router = useRouter()
     /*Getting the third element of the array.*/
     const currentMenu = router.asPath.split('/')[2]
     const currentCategorie = router.asPath.split('/')[3]
-
+    console.log(imageCymbals)
     let imagesCategorie: any = []
     imageCymbals.forEach((i: any, n: number) => normilizeRoute(i.categorie) == currentCategorie ? imagesCategorie[n] = i.image : "")
 
-    console.log(dataCymbals)
     /*Getting all categories from the data file.*/
     const cymbalsPerCatergorie = dataCymbals.filter((c: any) => (normilizeRoute(c.menu) === currentMenu) && (normilizeRoute(c.categorie) === currentCategorie))
-
-
+    
     let dataToCymbals: any = []
     let each3: any = []
     {
@@ -51,7 +69,7 @@ export default function IdCategorie() {
         })
     }
     return (
-        <LayoutMenu>
+        <LayoutMenu dataMenus={dataMenus}>
             {/* A component from the Mantine library. It is a component that allows you to add a box
             with a padding of xl.  */}
             <Box
@@ -61,7 +79,6 @@ export default function IdCategorie() {
                     padding: theme.spacing.xl,
                 })}
             >
-
                 <Container sx={{ maxWidth: '1200px' }}>
 
                     <SimpleGrid
