@@ -23,6 +23,5 @@ export default async function handler(
     })
     let activeCymbals = cymbals.filter((c: any) => c.status === 'active')
     res.status(200).json(activeCymbals)
-    res.status(200).json(cymbals)
 }
 
