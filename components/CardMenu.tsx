@@ -64,13 +64,16 @@ export function CardMenu({ image, title, dataMenus }: ImageCardProps) {
             href={`/menu/${normilizeRoute(title)}/${normilizeRoute(firstChild() ?? '')}`}
             target="_self"
         >
+            {/* Show the images of each menu */}
             <div className={classes.image} style={{ backgroundImage: `url(${image})` }} />
             <div className={classes.content}>
 
                 <Group position="apart" spacing="xs">
+                {/* Show the title of the menus  */}
                     <Text size="lg" className={classes.title} weight={500}>
                         {title}
                     </Text>
+                    {/* An arrow shaped icon */}
                     <IconArrowNarrowRight size={18} color='white' />
                 </Group>
 

@@ -15,6 +15,7 @@ export default function Home({ images }: { images: any }) {
     fetchMenus()
   }, [])
   return (
+    //shows a carousel with images of events
     <Stack sx={{ backgroundColor: '#B2945E' }}>
       <Carousel
         sx={{ minWidth: '100%', maxHeight: '40%', backgroundColor: 'black' }}
@@ -38,6 +39,7 @@ export default function Home({ images }: { images: any }) {
       </Carousel>
       <div>
         <Container >
+        {/* Shows all the information of the main menu */}
           <SimpleGrid cols={3} breakpoints={[{ maxWidth: 600, cols: 1 }, { maxWidth: 755, cols: 2 }, { maxWidth: 980, cols: 3 }]}>
             {dataMenus.map((v: any, i: number) => (<CardMenu key={i} image={v.image} title={v.title} dataMenus={dataMenus}></CardMenu>))}
           </SimpleGrid>

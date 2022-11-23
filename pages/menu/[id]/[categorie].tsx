@@ -5,7 +5,8 @@ import { CymbalsMenu } from "../../../components/CymbalsMenu";
 import { useRouter } from "next/router";
 import { normilizeRoute } from "../../../static/onStrings";
 import { useEffect, useState } from 'react';
-import { imageCymbals } from '../../../utils/data';
+import { getDocs, collection } from "firebase/firestore";
+import { db } from "../../../firebase/firebase";
 
 
 
@@ -16,9 +17,22 @@ export default function IdCategorie() {
     const [dataCymbals, setDataCymbals] = useState([])
     useEffect(() => {
         const fetchCymbals = async () => {
-            const res = await fetch(`/api/cymbals`)
-            const data = await res.json()
-            setDataCymbals(data ?? [])
+            const querySnapshot = await getDocs(collection(db, "cymbals"))
+            let cymbals: any = []
+            querySnapshot.forEach((doc) => {
+                const newObject = {
+                    id: doc.id,
+                    menu: doc.data().menu,
+                    categorie: doc.data().categorie,
+                    name: doc.data().name,
+                    description: doc.data().description,
+                    price: doc.data().price,
+                    status: doc.data().status
+                }
+                cymbals.push(newObject)
+            })
+            let activeCymbals = cymbals.filter((c: any) => c.status === 'active')
+            setDataCymbals(activeCymbals)
         }
         fetchCymbals()
     }, [])
@@ -45,16 +59,13 @@ export default function IdCategorie() {
     }, [])
 
     const router = useRouter()
-    /*Getting the third element of the array.*/
+
     const currentMenu = router.asPath.split('/')[2]
     const currentCategorie = router.asPath.split('/')[3]
-    console.log(imageCymbals)
     let imagesCategorie: any = []
-    imageCymbals.forEach((i: any, n: number) => normilizeRoute(i.categorie) == currentCategorie ? imagesCategorie[n] = i.image : "")
-
-    /*Getting all categories from the data file.*/
+    imageCymbals.forEach((i: any, n: number) => normilizeRoute(i.categorie) == currentCategorie ? imagesCategorie[n] = i.src : "")
     const cymbalsPerCatergorie = dataCymbals.filter((c: any) => (normilizeRoute(c.menu) === currentMenu) && (normilizeRoute(c.categorie) === currentCategorie))
-    
+
     let dataToCymbals: any = []
     let each3: any = []
     {
@@ -70,8 +81,7 @@ export default function IdCategorie() {
     }
     return (
         <LayoutMenu dataMenus={dataMenus}>
-            {/* A component from the Mantine library. It is a component that allows you to add a box
-            with a padding of xl.  */}
+
             <Box
                 sx={(theme) => ({
 
@@ -83,8 +93,7 @@ export default function IdCategorie() {
 
                     <SimpleGrid
                         cols={2} breakpoints={[{ maxWidth: 1000, cols: 1 }]}>
-                        {/* Mapping the dataToCymbals array and returning the CymbalsMenu component. */
-
+                        {
                             dataToCymbals.map((dt: any, i: number) => <CymbalsMenu key={i} cymbals={dt} image={imagesCategorie[i]} />)}
 
                     </SimpleGrid>

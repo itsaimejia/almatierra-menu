@@ -1,14 +1,27 @@
+import { getDocs, collection } from "firebase/firestore"
 import { NextApiRequest, NextApiResponse } from "next"
+import { db } from "../../firebase/firebase"
 
 
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<any>
 ) {
-    const url = 'https://almatierra-7796b-default-rtdb.firebaseio.com/dataCymbals.json'
-    const r = await fetch(url)
-    let json = await r.json()
-    let cymbals = json.filter((e: any) => e !== null)
-    res.status(200).json(cymbals)
+    const querySnapshot = await getDocs(collection(db, "cymbals"))
+    let cymbals: any = []
+    querySnapshot.forEach((doc) => {
+        const newObject = {
+            id: doc.id,
+            menu: doc.data().menu,
+            categorie: doc.data().categorie,
+            name: doc.data().name,
+            description: doc.data().description,
+            price: doc.data().price,
+            status: doc.data().status
+        }
+        cymbals.push(newObject)
+    })
+    let activeCymbals = cymbals.filter((c: any) => c.status === 'active')
+    res.status(200).json(activeCymbals)
 }
 

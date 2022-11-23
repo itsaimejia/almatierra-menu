@@ -1,15 +1,14 @@
-import { initializeApp } from "firebase/app";
+import { getApp, getApps, initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB-Oz6j_0cOaQRKYm4tEgW4Q_945Hl0l4I",
-  authDomain: "almatierra-7796b.firebaseapp.com",
-  projectId: "almatierra-7796b",
-  storageBucket: "almatierra-7796b.appspot.com",
-  messagingSenderId: "217540786535",
-  appId: "1:217540786535:web:7f6f746a02c2110743d7c2",
-  measurementId: "G-CH8PEFLF1J"
+  apiKey: "AIzaSyD0K-eGKF_nWMInHhJInbqFWCsiZgBWeaQ",
+  authDomain: "food-4eb80.firebaseapp.com",
+  databaseURL: "https://food-4eb80-default-rtdb.firebaseio.com",
+  projectId: "food-4eb80",
+  storageBucket: "food-4eb80.appspot.com",
+  messagingSenderId: "761828869602",
+  appId: "1:761828869602:web:bbef2940978c7ce9c065bb"
 }
-
-export const app = initializeApp(firebaseConfig);
-export const database = getFirestore(app);
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+export const db = getFirestore(app);
