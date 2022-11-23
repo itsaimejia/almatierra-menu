@@ -1,7 +1,6 @@
 import { IconArrowNarrowRight } from '@tabler/icons';
 import { Card, Text, Group, createStyles } from '@mantine/core';
 import { normilizeRoute } from '../static/onStrings';
-import { dataMenus } from '../utils/data';
 
 const useStyles = createStyles((theme, _params, getRef) => {
     const image = getRef('image');
@@ -45,14 +44,15 @@ const useStyles = createStyles((theme, _params, getRef) => {
 });
 
 interface ImageCardProps {
-    image: string;
-    title: string;
+    image: string
+    title: string
+    dataMenus: Array<any>
 }
 
-export function CardMenu({ image, title }: ImageCardProps) {
+export function CardMenu({ image, title, dataMenus }: ImageCardProps) {
     const { classes, theme } = useStyles();
 
-    const getCategories = () => dataMenus.find(d => normilizeRoute(d.title) === normilizeRoute(title))
+    const getCategories = () => dataMenus.find((d: any) => normilizeRoute(d.title) === normilizeRoute(title))
     const firstChild = () => getCategories()?.categories[0].toString()
     return (
         <Card
@@ -64,13 +64,16 @@ export function CardMenu({ image, title }: ImageCardProps) {
             href={`/menu/${normilizeRoute(title)}/${normilizeRoute(firstChild() ?? '')}`}
             target="_self"
         >
+            {/* Show the images of each menu */}
             <div className={classes.image} style={{ backgroundImage: `url(${image})` }} />
             <div className={classes.content}>
 
                 <Group position="apart" spacing="xs">
+                {/* Show the title of the menus  */}
                     <Text size="lg" className={classes.title} weight={500}>
                         {title}
                     </Text>
+                    {/* An arrow shaped icon */}
                     <IconArrowNarrowRight size={18} color='white' />
                 </Group>
 

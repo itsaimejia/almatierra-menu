@@ -1,23 +1,21 @@
 import { Carousel } from '@mantine/carousel'
 import { Center, Container, Image, SimpleGrid, Stack } from '@mantine/core'
 import { CardMenu } from '../../components/CardMenu'
-import React from 'react'
-import { dataMenus } from '../../utils/data'
-import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react'
 
+export default function Menu({ images }: { images: any }) {
+    const [dataMenus, setDataMenus] = useState([])
 
-const images = [
-    {
-        alt: 'Banner 1',
-        src: 'https://firebasestorage.googleapis.com/v0/b/almatierra-7796b.appspot.com/o/banner1.jpg?alt=media&token=1d8dbd78-b04f-4f3d-ae08-344860dd2fa7'
-    }, {
-        alt: 'Banner 2',
-        src: 'https://firebasestorage.googleapis.com/v0/b/almatierra-7796b.appspot.com/o/banner2.jpg?alt=media&token=6b3fb746-2b34-43d0-8a7c-235d4da10e36'
-    }
-
-]
-export default function Menu() {
-
+//Este index no arroja ninguna informacion(quitarlo xd)
+    useEffect(() => {
+        const fetchMenus = async () => {
+            const res = await fetch(`/api/menus`)
+            const data = await res.json()
+            const titleMenusList = data.map((d: any) => d.title)
+            setDataMenus(data ?? [])
+        }
+        fetchMenus()
+    }, [])
     return (
         <Stack sx={{ backgroundColor: '#B2945E' }}>
             <Carousel
@@ -43,7 +41,7 @@ export default function Menu() {
             <div>
                 <Container >
                     <SimpleGrid cols={3} breakpoints={[{ maxWidth: 600, cols: 1 }, { maxWidth: 755, cols: 2 }, { maxWidth: 980, cols: 3 }]}>
-                        {dataMenus.map((v: any, i: number) => (<CardMenu key={i} image={v.image} title={v.title}></CardMenu>))}
+                        {dataMenus.map((v: any, i: number) => (<CardMenu key={i} image={v.image} title={v.title} dataMenus={dataMenus}></CardMenu>))}
                     </SimpleGrid>
                 </Container>
             </div>
@@ -52,3 +50,18 @@ export default function Menu() {
     )
 }
 
+export async function getStaticProps() {
+    const url = 'https://almatierra-7796b-default-rtdb.firebaseio.com/images.json'
+    const res = await fetch(url)
+    let json = await res.json()
+    let imgs = json.filter((e: any) => e !== null)
+    let images: any = []
+    imgs.filter((e: any) => e.section === 'banner').forEach((e: any) => {
+        images.push(e)
+    });
+    return {
+        props: {
+            images
+        },
+    }
+}
