@@ -64,6 +64,7 @@ export default function IdCategorie() {
     const currentCategorie = router.asPath.split('/')[3]
     let imagesCategorie: any = []
     imageCymbals.forEach((i: any, n: number) => normilizeRoute(i.categorie) == currentCategorie ? imagesCategorie[n] = i.src : "")
+    imagesCategorie = imagesCategorie.filter((e: any) => e !== null)
     const cymbalsPerCatergorie = dataCymbals.filter((c: any) => (normilizeRoute(c.menu) === currentMenu) && (normilizeRoute(c.categorie) === currentCategorie))
 
     let dataToCymbals: any = []
