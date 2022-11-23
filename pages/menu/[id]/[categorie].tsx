@@ -50,11 +50,11 @@ export default function IdCategorie() {
     const currentCategorie = router.asPath.split('/')[3]
     console.log(imageCymbals)
     let imagesCategorie: any = []
-    imageCymbals.forEach((i: any, n: number) => normilizeRoute(i.categorie) == currentCategorie ? imagesCategorie[n] = i.image : "")
+    imageCymbals.forEach((i: any, n: number) => normilizeRoute(i.categorie) == currentCategorie ? imagesCategorie[n] = i.src : "")
 
 
     const cymbalsPerCatergorie = dataCymbals.filter((c: any) => (normilizeRoute(c.menu) === currentMenu) && (normilizeRoute(c.categorie) === currentCategorie))
-    
+
     let dataToCymbals: any = []
     let each3: any = []
     {
@@ -70,7 +70,7 @@ export default function IdCategorie() {
     }
     return (
         <LayoutMenu dataMenus={dataMenus}>
-           
+
             <Box
                 sx={(theme) => ({
 
