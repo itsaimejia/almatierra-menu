@@ -1,13 +1,25 @@
+import { collection, getDocs } from "firebase/firestore"
 import { NextApiRequest, NextApiResponse } from "next"
+import { db } from "../../firebase/firebase"
 
 
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<any>
 ) {
-    const url = 'https://almatierra-7796b-default-rtdb.firebaseio.com/images.json'
-    const r = await fetch(url)
-    let json = await r.json()
-    let images = json.filter((e: any) => e !== null)
+    const querySnapshot = await getDocs(collection(db, "images"))
+    querySnapshot.forEach((doc) => {
+        
+        const newObject = {
+            alt: doc.data().alt,
+            categorie: doc.data().categorie,
+            menu: doc.data().menu,
+            section: doc.data().section,
+            src: doc.data().src
+        }
+        images.push(newObject)
+    })   
+    let images: any = []
+
     res.status(200).json(images)
 }
