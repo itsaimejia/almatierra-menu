@@ -48,26 +48,27 @@ export default function IdCategorie() {
     }, [])
 
     const [imageCymbals, setImageCymbals] = useState([])
-    const fetchImage = async () => {
-        let images: any = []
-        const querySnapshot = await getDocs(collection(db, "images"))
-        querySnapshot.forEach((doc) => {
-            
-        const newObject = {
-            alt: doc.data().alt,
-            categorie: doc.data().categorie,
-            menu: doc.data().menu,
-            section: doc.data().section,
-            src: doc.data().src
+    useEffect(() => {
+        const fetchImage = async () => {
+            let images: any = []
+            const querySnapshot = await getDocs(collection(db, "images"))
+            querySnapshot.forEach((doc) => {
+
+                const newObject = {
+                    alt: doc.data().alt,
+                    categorie: doc.data().categorie,
+                    menu: doc.data().menu,
+                    section: doc.data().section,
+                    src: doc.data().src
+                }
+                images.push(newObject)
+            })
+            setImageCymbals(images)
         }
-        images.push(newObject)
-    })   
-    setImageCymbals(images)
-    }
-    fetchImage()
+        fetchImage()
+    }, [])
 
     const router = useRouter()
-
     const currentMenu = router.asPath.split('/')[2]
     const currentCategorie = router.asPath.split('/')[3]
     let imagesCategorie: any = []
