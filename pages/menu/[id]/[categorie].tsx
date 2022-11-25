@@ -48,15 +48,23 @@ export default function IdCategorie() {
     }, [])
 
     const [imageCymbals, setImageCymbals] = useState([])
-    useEffect(() => {
-        const fetchImages = async () => {
-            const res = await fetch(`/api/images`)
-            const data = await res.json()
-            const images = data.filter((i: any) => i.section === 'menu')
-            setImageCymbals(images ?? [])
+    const fetchImage = async () => {
+        let images: any = []
+        const querySnapshot = await getDocs(collection(db, "images"))
+        querySnapshot.forEach((doc) => {
+            
+        const newObject = {
+            alt: doc.data().alt,
+            categorie: doc.data().categorie,
+            menu: doc.data().menu,
+            section: doc.data().section,
+            src: doc.data().src
         }
-        fetchImages()
-    }, [])
+        images.push(newObject)
+    })   
+    setImageCymbals(images)
+    }
+    fetchImage()
 
     const router = useRouter()
 
@@ -64,6 +72,7 @@ export default function IdCategorie() {
     const currentCategorie = router.asPath.split('/')[3]
     let imagesCategorie: any = []
     imageCymbals.forEach((i: any, n: number) => normilizeRoute(i.categorie) == currentCategorie ? imagesCategorie[n] = i.src : "")
+    imagesCategorie = imagesCategorie.filter((e: any) => e !== null)
     const cymbalsPerCatergorie = dataCymbals.filter((c: any) => (normilizeRoute(c.menu) === currentMenu) && (normilizeRoute(c.categorie) === currentCategorie))
 
     let dataToCymbals: any = []
