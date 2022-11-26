@@ -6,10 +6,10 @@ import { db } from "../../firebase/firebase"
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<any>
-) {
+) {    
+    let images: any = []
     const querySnapshot = await getDocs(collection(db, "images"))
     querySnapshot.forEach((doc) => {
-        
         const newObject = {
             alt: doc.data().alt,
             categorie: doc.data().categorie,
@@ -19,7 +19,7 @@ export default async function handler(
         }
         images.push(newObject)
     })   
-    let images: any = []
+
 
     res.status(200).json(images)
 }
