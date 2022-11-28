@@ -55,7 +55,7 @@ El ID de cada documento fue formado con el siguiente orden
 >- **src**: Hipervinculo a la imagen. 
 
 ![Menu](https://imagizer.imageshack.com/v2/1280x1024q90/922/r7pnRI.png "Menu")
->**Otro servicio que se uso de Firebase es Storage donde se almacenaron las imagenes y de donde obtenemos el hipervinculo a estas. **
+>**Otro servicio que se uso de Firebase es Storage donde se almacenaron las imagenes y de donde obtenemos el hipervinculo a estas.**
 
 ## Instalacion
 
