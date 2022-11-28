@@ -1,8 +1,12 @@
 # Tabla de Contenidos
 
-[TOCM]
-
-[TOC]
+- [Introduccion](#Introducción).
+- [Base de datos](#Base de datos).
+- [Instalacion](#Instalacion).
+- [Dependencias](#Dependencias).
+- [TypeScript](#TypeScript).
+- [Desarrollo](#Desarrollo).
+- [Colaboradores](#Colaboradores).
 
 ## Introducción
 
@@ -17,11 +21,11 @@ Entre los servicios que ofrece esta plataforma cuenta con Firestore Database, en
 >**Cymbals** contiene los registros de los Productos, cada registro está conformado por:
 
 >- **menu:** Dato utilizado para filtrar a qué menú pertenece entre los diferentes que hay.
-**categorie: ** Igualmente es utilizado para filtrar a qué categoria del menú pertenece.
-- **name:** Nombre del platillo/producto.
-- **description:** Descripción del platillo/producto.
-- **price: ** Precio del producto.
-- **status:** Dato utlizado para filtrar si el platillo se encuentra activo,  dependiendo su valor se mostrará o no en el Menú.
+>**categorie: ** Igualmente es utilizado para filtrar a qué categoria del menú pertenece.
+>- **name:** Nombre del platillo/producto.
+>- **description:** Descripción del platillo/producto.
+>- **price: ** Precio del producto.
+>- **status:** Dato utlizado para filtrar si el platillo se encuentra activo,  dependiendo su valor se mostrará o no en el Menú.
 El ID de cada documento fue formado con el siguiente orden
 
 
@@ -36,19 +40,19 @@ El ID de cada documento fue formado con el siguiente orden
 
 ![Menu](https://imagizer.imageshack.com/v2/1280x1024q90/924/4pAF9r.png "Menu")
 >- **Menu** trae todos los datos de las categorias de los platillos del menu y cada registro contiene:
-- **banner:** Contiene la imagen del header de cada seccion del menu.
-- **categorie: ** Dato que contiene las subcategorias de cada menu.
-- **mainImage:** Contiene la imagen representativa de cada menu para acceder a los platillos.
-- **status:**  Dato utlizado para filtrar si alguna categoria del menu se encuentra activo. En caso de no encontrarse activo este desaparecera del menu.
-- **title:** Nombre que se le otorga a cada categoria.
+>- **banner:** Contiene la imagen del header de cada seccion del menu.
+>- **categorie: ** Dato que contiene las subcategorias de cada menu.
+>- **mainImage:** Contiene la imagen representativa de cada menu para acceder a los platillos.
+>- **status:**  Dato utlizado para filtrar si alguna categoria del menu se encuentra activo. En caso de no encontrarse activo este desaparecera del menu.
+>- **title:** Nombre que se le otorga a cada categoria.
 
 ![Menu](https://imagizer.imageshack.com/v2/1280x1024q90/923/lzkcU0.png "Menu")
 >- **Images** guarda la informacion de las imagenes que se usaron en el Menú, cada registro contiene:
-- **alt**: Nombre de la imagen
-- **section**: Dato utilizado para saber a qué sección del menú pertenece, ya que hay 3 secciones: **banner**, **menu**, **banner menu**. Si el valor es *banner*, los siguientes campos quedarian vacios. 
-- **menu:** Dato utilizado para filtrar a qué menú pertenece entre los diferentes que hay. Puede estar vacío.
-- **categorie: ** Igualmente es utilizado para filtrar a qué categoria del menú pertenece. Puede estar vacío.
-- **src**: Hipervinculo a la imagen. 
+>- **alt**: Nombre de la imagen
+>- **section**: Dato utilizado para saber a qué sección del menú pertenece, ya que hay 3 secciones: **banner**, **menu**, **banner menu**. Si el valor es *banner*, los siguientes campos quedarian vacios. 
+>- **menu:** Dato utilizado para filtrar a qué menú pertenece entre los diferentes que hay. Puede estar vacío.
+>- **categorie: ** Igualmente es utilizado para filtrar a qué categoria del menú pertenece. Puede estar vacío.
+>- **src**: Hipervinculo a la imagen. 
 
 ![Menu](https://imagizer.imageshack.com/v2/1280x1024q90/922/r7pnRI.png "Menu")
 >**Otro servicio que se uso de Firebase es Storage donde se almacenaron las imagenes y de donde obtenemos el hipervinculo a estas. **
