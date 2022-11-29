@@ -62,8 +62,7 @@ export default function IdCategorie() {
         const fetchImage = async () => {
             let images: any = []
             const querySnapshot = await getDocs(collection(db, "images"))
-            querySnapshot.forEach((doc) => {
-                
+            querySnapshot.forEach((doc) => {                
             const newObject = {
                 alt: doc.data().alt,
                 categorie: doc.data().categorie,
@@ -74,12 +73,12 @@ export default function IdCategorie() {
             images.push(newObject)
         })   
         setImageCymbals(images)
+
         }
         fetchImage()
     }, [])
 
     const router = useRouter()
-
     const currentMenu = router.asPath.split('/')[2]
     const currentCategorie = router.asPath.split('/')[3]
     let imagesCategorie: any = []
