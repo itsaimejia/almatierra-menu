@@ -112,10 +112,8 @@ export default function IdCategorie() {
                 <Container sx={{ maxWidth: '1200px' }}>
 
                     <SimpleGrid
-                        cols={2} breakpoints={[{ maxWidth: 1000, cols: 1 }]}>
-                        {
-                            dataToCymbals.map((dt: any, i: number) => <CymbalsMenu key={i} cymbals={dt} image={imagesCategorie[i]} />)}
-
+                        cols={cymbalsPerCatergorie.length > 3 ? 2 : 1} breakpoints={[{ maxWidth: 1000, cols: 1 }]}>
+                        {dataToCymbals.map((dt: any, i: number) => <CymbalsMenu key={i} cymbals={dt} image={imagesCategorie[i]} />)}
                     </SimpleGrid>
                 </Container>
             </Box>

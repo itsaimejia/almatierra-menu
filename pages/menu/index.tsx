@@ -5,27 +5,28 @@ import React, { useEffect, useState } from 'react'
 import { CardMenu } from '../../components/CardMenu';
 import { db } from '../../firebase/firebase';
 
+
 export default function Home({ images }: { images: any }) {
   const [dataMenus, setDataMenus] = useState([])
-    useEffect(() => {
-        const fetchMenus = async () => {
-            let menus: any = []
-            const querySnapshot = await getDocs(collection(db, "menus"))
-            querySnapshot.forEach((doc) => {
-                
-            const newObject = {
-                banner: doc.data().banner,
-                categories: doc.data().categories,
-                image: doc.data().image,
-                title: doc.data().title
-            }
-            menus.push(newObject)
-        })   
-        setDataMenus(menus)
+  useEffect(() => {
+    const fetchMenus = async () => {
+      let menus: any = []
+      const querySnapshot = await getDocs(collection(db, "menus"))
+      querySnapshot.forEach((doc) => {
+
+        const newObject = {
+          banner: doc.data().banner,
+          categories: doc.data().categories,
+          image: doc.data().image,
+          title: doc.data().title
         }
-        fetchMenus()
-    }, [])
-    
+        menus.push(newObject)
+      })
+      setDataMenus(menus)
+    }
+    fetchMenus()
+  }, [])
+
   return (
     //shows a carousel with images of events
     <Stack sx={{ backgroundColor: '#B2945E' }}>
@@ -51,7 +52,7 @@ export default function Home({ images }: { images: any }) {
       </Carousel>
       <div>
         <Container >
-        {/* Shows all the information of the main menu */}
+          {/* Shows all the information of the main menu */}
           <SimpleGrid cols={3} breakpoints={[{ maxWidth: 600, cols: 1 }, { maxWidth: 755, cols: 2 }, { maxWidth: 980, cols: 3 }]}>
             {dataMenus.map((v: any, i: number) => (<CardMenu key={i} image={v.image} title={v.title} dataMenus={dataMenus}></CardMenu>))}
           </SimpleGrid>
@@ -64,18 +65,18 @@ export default function Home({ images }: { images: any }) {
 
 export async function getStaticProps() {
   let images: any = []
-    const querySnapshot = await getDocs(collection(db, "images"))
-    querySnapshot.forEach((doc) => {
-        
+  const querySnapshot = await getDocs(collection(db, "images"))
+  querySnapshot.forEach((doc) => {
+
     const newObject = {
-        alt: doc.data().alt,
-        categorie: doc.data().categorie,
-        menu: doc.data().menu,
-        section: doc.data().section,
-        src: doc.data().src
+      alt: doc.data().alt,
+      categorie: doc.data().categorie,
+      menu: doc.data().menu,
+      section: doc.data().section,
+      src: doc.data().src
     }
     images.push(newObject)
-})   
+  })
   let imgs = images.filter((e: any) => e !== null)
   let banners = imgs.filter((e: any) => e.section === 'banner')
   return {
@@ -84,3 +85,6 @@ export async function getStaticProps() {
     },
   }
 }
+
+
+
