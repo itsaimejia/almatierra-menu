@@ -1,19 +1,31 @@
 import { Carousel } from '@mantine/carousel'
 import { Center, Container, Image, SimpleGrid, Stack } from '@mantine/core'
+import { collection, doc, getDocs, setDoc } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
 import { CardMenu } from '../components/CardMenu';
+import { db } from '../firebase/firebase';
 
 export default function Home({ images }: { images: any }) {
   const [dataMenus, setDataMenus] = useState([])
-  useEffect(() => {
-    const fetchMenus = async () => {
-      const res = await fetch(`/api/menus`)
-      const data = await res.json()
-      const titleMenusList = data.map((d: any) => d.title)
-      setDataMenus(data ?? [])
-    }
-    fetchMenus()
-  }, [])
+    useEffect(() => {
+        const fetchMenus = async () => {
+            let menus: any = []
+            const querySnapshot = await getDocs(collection(db, "menus"))
+            querySnapshot.forEach((doc) => {
+                
+            const newObject = {
+                banner: doc.data().banner,
+                categories: doc.data().categories,
+                image: doc.data().image,
+                title: doc.data().title
+            }
+            menus.push(newObject)
+        })   
+        setDataMenus(menus)
+        }
+        fetchMenus()
+    }, [])
+    
   return (
     //shows a carousel with images of events
     <Stack sx={{ backgroundColor: '#B2945E' }}>
@@ -51,14 +63,24 @@ export default function Home({ images }: { images: any }) {
 }
 
 export async function getStaticProps() {
-  const url = 'https://almatierra-7796b-default-rtdb.firebaseio.com/images.json'
-  const res = await fetch(url)
-  let json = await res.json()
-  let imgs = json.filter((e: any) => e !== null)
-  let images = imgs.filter((e: any) => e.section === 'banner')
+  let images: any = []
+    const querySnapshot = await getDocs(collection(db, "images"))
+    querySnapshot.forEach((doc) => {
+        
+    const newObject = {
+        alt: doc.data().alt,
+        categorie: doc.data().categorie,
+        menu: doc.data().menu,
+        section: doc.data().section,
+        src: doc.data().src
+    }
+    images.push(newObject)
+})   
+  let imgs = images.filter((e: any) => e !== null)
+  let banners = imgs.filter((e: any) => e.section === 'banner')
   return {
     props: {
-      images
+      images: banners
     },
   }
 }
