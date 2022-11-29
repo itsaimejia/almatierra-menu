@@ -1,27 +1,24 @@
-# Tabla de Contenidos
-
-- [Introduccion](#Introducción).
-- [Base de datos](#Base-de-datos).
-- [Instalacion](#Instalacion).
-- [Dependencias](#Dependencias).
-- [TypeScript](#TypeScript).
-- [Desarrollo](#Desarrollo).
-- [Colaboradores](#Colaboradores).
-
 ## Introducción
 
-Se decidió realizar un menú digital para un restaurante llamado alma tierra, ya que con el menú que contaban no era muy intuitivo y mas aparte no todos los clientes podian acceder y visualizarlo de forma correcta ya que no todos contaban con una cuenta de gmail.
+
+
+Se decidió realizar un menú digital dinámico a sustitución de un menú físico, para poder tener un mejor experiencia visual, así como mayor accesibilidad e intuitiva. También para poder manejar la publicidad de eventos especiales y platillos especiales o recomendados por el chef.
+
+
+
+## Introducción
+El menú digital está guiado por un sistema con una base de datos en línea donde se pueden manejar la información de manera constante  por medio de una página web. Un beneficio de tener un menú digital dinámico es poder actualizar la información y poder visualizarla al instante.
 
 ## Base de datos
-Para la base de datos se uso [Firebase](https://firebase.google.com "Firebase") de Google que es una plataforma la cual nos otorga el servicio de almacenamiento en la nube, al pertenecer a Google podemos tener la tranquilidad que los datos están seguros. Cuenta con una cuota diaria gratuita lo que nos permite correr pruebas de una manera sencilla sin hacer gasto. 
+Para la base de datos se usó [Firebase](https://firebase.google.com "Firebase") de Google que es una plataforma la cual nos otorga el servicio de almacenamiento en la nube, al pertenecer a Google podemos tener la tranquilidad que los datos están seguros. Cuenta con una cuota diaria gratuita, lo que nos permite correr pruebas de una manera sencilla sin hacer gasto. 
 
-Entre los servicios que ofrece esta plataforma cuenta con Firestore Database, en este se crearon todas las colecciones necesarias para la administración de los datos. Las colecciones creadas son** cymbals**,** menus** e **images**.
+Entre los servicios que ofrece esta plataforma cuenta con Firestore Database, en este se crearon todas las colecciones necesarias para la administración de los datos. Las colecciones creadas son **cymbals** , ** menus** e **images**.
 
 ![Menu](https://imagizer.imageshack.com/v2/1280x1024q90/922/TdKK0m.png "Menu")
 >**Cymbals** contiene los registros de los Productos, cada registro está conformado por:
 
 >- **menu:** Dato utilizado para filtrar a qué menú pertenece entre los diferentes que hay.
->**categorie: ** Igualmente es utilizado para filtrar a qué categoria del menú pertenece.
+>**categorie:** Igualmente es utilizado para filtrar a qué categoria del menú pertenece.
 >- **name:** Nombre del platillo/producto.
 >- **description:** Descripción del platillo/producto.
 >- **price:** Precio del producto.
@@ -57,7 +54,7 @@ El ID de cada documento fue formado con el siguiente orden
 ![Menu](https://imagizer.imageshack.com/v2/1280x1024q90/922/r7pnRI.png "Menu")
 >**Otro servicio que se uso de Firebase es Storage donde se almacenaron las imagenes y de donde obtenemos el hipervinculo a estas.**
 
-## Instalacion
+## Instalación
 
 ```bash
 git clone https://github.com/itsaimejia/almatierra-menu.git
@@ -72,7 +69,7 @@ npm install @mantine/carousel
 ```
 
 ## TypeScript
-El lenguaje que se utilizó para este proyecto fue TypeScript ya que es un lenguaje intuitivo, facil de leer y de redactar, es mejor que javascript en terminos de que TypeScript es un lenguaje fuertemente tipado, esto quiere decir que tenemos que indicar que tipo que tipo de dato estamos asignando a una variable y si ocurre algun error de sintaxis sabremos en donde estaria gracias a que el compilador detecta estos errores y es ideal para proyectos complejos ya que puede llegar a ser mas escalable.
+El lenguaje que se utilizó para este proyecto fue TypeScript ya que es un lenguaje intuitivo, fácil de leer y de redactar, es mejor que JavaScript en términos de que TypeScript es un lenguaje fuertemente tipado, esto quiere decir que tenemos que indicar que tipo de dato estamos asignando a una variable y si ocurre algún error de sintaxis sabremos en donde estaría gracias a que el compilador detecta estos errores y es ideal para proyectos complejos, ya que puede llegar a ser más escalable.
 
 ## Desarrollo
 
@@ -82,10 +79,10 @@ El lenguaje que se utilizó para este proyecto fue TypeScript ya que es un lengu
 
 ![Menu](https://imagizer.imageshack.com/v2/1280x1024q90/924/GM5OxE.png "Menu")
 
->**Una vez seleccionado algun menu pasaremos a la segunda pantalla que son todos los platillos que se encuentran disponible, en caso de no haber algun platillo disponible este se pone de forma inactiva y desapareceria del menu.**
+>**Una vez seleccionado algun menu pasaremos a la segunda pantalla que son todos los platillos que se encuentran disponible, en caso de no haber algun platillo disponible este se pone de forma inactiva y desapareceria del menú**
 
 ![Menu](https://imagizer.imageshack.com/v2/1280x1024q90/924/ottMvP.png "Menu")
->**En la tercera pantalla esta el menu de desayunos que cuenta con las subcategorias para despertar que son cosas ligeras como pan tostado, plato con frutas, en la seccion compartir tenemos el borrego tatemado, tambien hay omelets a la mexicana, de camaron y hongo, unos chilaquiles rojos, ademas de unos waffles y pan frances.**
+>**En la tercera pantalla esta el menú de desayunos que cuenta con las subcategorias para despertar que son cosas ligeras como pan tostado, plato con frutas, en la seccion compartir tenemos el borrego tatemado, tambien hay omelets a la mexicana, de camaron y hongo, unos chilaquiles rojos, ademas de unos waffles y pan frances.**
 
 ![Menu](https://imagizer.imageshack.com/v2/1280x1024q90/923/cZyp8G.png "Menu")
 >**Pasando a la cuarta pantalla tenemos las bebidas sin alcohol como una limonada natural o mineral.**
