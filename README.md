@@ -1,13 +1,16 @@
+# Tabla de Contenidos
+
+- [Introduccion](#Introducción).
+- [Base de datos](#Base-de-datos).
+- [Instalacion](#Instalacion).
+- [Dependencias](#Dependencias).
+- [TypeScript](#TypeScript).
+- [Desarrollo](#Desarrollo).
+- [Colaboradores](#Colaboradores).
+
 ## Introducción
-
-
-
 Se decidió realizar un menú digital dinámico a sustitución de un menú físico, para poder tener un mejor experiencia visual, así como mayor accesibilidad e intuitiva. También para poder manejar la publicidad de eventos especiales y platillos especiales o recomendados por el chef.
 
-
-
-## Introducción
-El menú digital está guiado por un sistema con una base de datos en línea donde se pueden manejar la información de manera constante  por medio de una página web. Un beneficio de tener un menú digital dinámico es poder actualizar la información y poder visualizarla al instante.
 
 ## Base de datos
 Para la base de datos se usó [Firebase](https://firebase.google.com "Firebase") de Google que es una plataforma la cual nos otorga el servicio de almacenamiento en la nube, al pertenecer a Google podemos tener la tranquilidad que los datos están seguros. Cuenta con una cuota diaria gratuita, lo que nos permite correr pruebas de una manera sencilla sin hacer gasto. 
