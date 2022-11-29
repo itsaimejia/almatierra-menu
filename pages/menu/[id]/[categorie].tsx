@@ -43,16 +43,19 @@ export default function IdCategorie() {
             let menus: any = []
             const querySnapshot = await getDocs(collection(db, "menus"))
             querySnapshot.forEach((doc) => {
-                
-            const newObject = {
-                banner: doc.data().banner,
-                categories: doc.data().categories,
-                image: doc.data().image,
-                title: doc.data().title
-            }
-            menus.push(newObject)
-        })   
-        setDataMenus(menus)
+
+                const newObject = {
+                    banner: doc.data().banner,
+                    categories: doc.data().categorie,
+                    image: doc.data().mainImage,
+                    title: doc.data().title,
+                    index: doc.data().index
+                }
+                menus.push(newObject)
+            })
+
+            const sortMenus = menus.sort((a: any, b: any) => parseInt(a.index) - parseInt(b.index))
+            setDataMenus(sortMenus)
         }
         fetchMenus()
     }, [])
@@ -62,17 +65,17 @@ export default function IdCategorie() {
         const fetchImage = async () => {
             let images: any = []
             const querySnapshot = await getDocs(collection(db, "images"))
-            querySnapshot.forEach((doc) => {                
-            const newObject = {
-                alt: doc.data().alt,
-                categorie: doc.data().categorie,
-                menu: doc.data().menu,
-                section: doc.data().section,
-                src: doc.data().src
-            }
-            images.push(newObject)
-        })   
-        setImageCymbals(images)
+            querySnapshot.forEach((doc) => {
+                const newObject = {
+                    alt: doc.data().alt,
+                    categorie: doc.data().categorie,
+                    menu: doc.data().menu,
+                    section: doc.data().section,
+                    src: doc.data().src
+                }
+                images.push(newObject)
+            })
+            setImageCymbals(images)
 
         }
         fetchImage()
