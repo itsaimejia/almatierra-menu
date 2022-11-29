@@ -40,9 +40,19 @@ export default function IdCategorie() {
     const [dataMenus, setDataMenus] = useState([])
     useEffect(() => {
         const fetchMenus = async () => {
-            const res = await fetch(`/api/menus`)
-            const data = await res.json()
-            setDataMenus(data ?? [])
+            let menus: any = []
+            const querySnapshot = await getDocs(collection(db, "menus"))
+            querySnapshot.forEach((doc) => {
+                
+            const newObject = {
+                banner: doc.data().banner,
+                categories: doc.data().categories,
+                image: doc.data().image,
+                title: doc.data().title
+            }
+            menus.push(newObject)
+        })   
+        setDataMenus(menus)
         }
         fetchMenus()
     }, [])
@@ -52,18 +62,18 @@ export default function IdCategorie() {
         const fetchImage = async () => {
             let images: any = []
             const querySnapshot = await getDocs(collection(db, "images"))
-            querySnapshot.forEach((doc) => {
+            querySnapshot.forEach((doc) => {                
+            const newObject = {
+                alt: doc.data().alt,
+                categorie: doc.data().categorie,
+                menu: doc.data().menu,
+                section: doc.data().section,
+                src: doc.data().src
+            }
+            images.push(newObject)
+        })   
+        setImageCymbals(images)
 
-                const newObject = {
-                    alt: doc.data().alt,
-                    categorie: doc.data().categorie,
-                    menu: doc.data().menu,
-                    section: doc.data().section,
-                    src: doc.data().src
-                }
-                images.push(newObject)
-            })
-            setImageCymbals(images)
         }
         fetchImage()
     }, [])
