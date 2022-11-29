@@ -7,7 +7,12 @@ export const CategoriesScroll = ({ array }: { array: Array<string> }) => {
     const router = useRouter()
     const currentMenu = router.asPath.split('/')[2]
     return (
-        <Center sx={{ borderRadius: '10px' }}>
+        <Center sx={{
+            borderRadius: '10px',
+            [`@media only screen and (max-width: 600px)`]: {
+                paddingTop: 100,
+            },
+        }}>
 
             <ScrollArea
                 styles={() => ({
@@ -18,6 +23,7 @@ export const CategoriesScroll = ({ array }: { array: Array<string> }) => {
                         '&[data-orientation="horizontal"] .mantine-ScrollArea-thumb': {
                             backgroundColor: 'rgba(0,0,0,0.3)',
                         },
+
                     },
                 })}
                 sx={{ whiteSpace: 'nowrap', boxShadow: '0px 5px 10px 0px rgba(0, 0, 0, 0.5)', borderRadius: '15px', padding: '5px 0 ' }}>

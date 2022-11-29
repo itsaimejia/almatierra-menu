@@ -7,14 +7,16 @@ import { normilizeRoute } from "../../../static/onStrings";
 import { useEffect, useState } from 'react';
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
+import { useMediaQuery } from "@mantine/hooks";
 
 
 
 
 /* A function that returns the layout of the page. */
 export default function IdCategorie() {
-
     const [dataCymbals, setDataCymbals] = useState([])
+    const [dataMenus, setDataMenus] = useState([])
+    const [imageCymbals, setImageCymbals] = useState([])
     useEffect(() => {
         const fetchCymbals = async () => {
             const querySnapshot = await getDocs(collection(db, "cymbals"))
@@ -34,11 +36,6 @@ export default function IdCategorie() {
             let activeCymbals = cymbals.filter((c: any) => c.status === 'active')
             setDataCymbals(activeCymbals)
         }
-        fetchCymbals()
-    }, [])
-
-    const [dataMenus, setDataMenus] = useState([])
-    useEffect(() => {
         const fetchMenus = async () => {
             let menus: any = []
             const querySnapshot = await getDocs(collection(db, "menus"))
@@ -57,11 +54,6 @@ export default function IdCategorie() {
             const sortMenus = menus.sort((a: any, b: any) => parseInt(a.index) - parseInt(b.index))
             setDataMenus(sortMenus)
         }
-        fetchMenus()
-    }, [])
-
-    const [imageCymbals, setImageCymbals] = useState([])
-    useEffect(() => {
         const fetchImage = async () => {
             let images: any = []
             const querySnapshot = await getDocs(collection(db, "images"))
@@ -78,8 +70,13 @@ export default function IdCategorie() {
             setImageCymbals(images)
 
         }
+        fetchCymbals()
+        fetchMenus()
         fetchImage()
     }, [])
+
+
+
 
     const router = useRouter()
     const currentMenu = router.asPath.split('/')[2]
@@ -110,6 +107,7 @@ export default function IdCategorie() {
 
                     textAlign: 'center',
                     padding: theme.spacing.xl,
+
                 })}
             >
                 <Container sx={{ maxWidth: '1200px' }}>

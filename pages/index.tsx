@@ -1,5 +1,5 @@
 import { Carousel } from '@mantine/carousel'
-import { Center, Container, Flex, Image, SimpleGrid, Stack } from '@mantine/core'
+import { Center, Container, Flex, Image, SimpleGrid, Skeleton, Stack } from '@mantine/core'
 import { collection, doc, getDocs, setDoc } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
 import { CardMenu } from '../components/CardMenu';
@@ -7,6 +7,7 @@ import { db } from '../firebase/firebase';
 
 export default function Home({ images }: { images: any }) {
   const [dataMenus, setDataMenus] = useState([])
+  
   useEffect(() => {
     const fetchMenus = async () => {
       let menus: any = []
@@ -26,6 +27,7 @@ export default function Home({ images }: { images: any }) {
     }
     fetchMenus()
   }, [])
+
   return (
     //shows a carousel with images of events
     <Stack sx={{ backgroundColor: '#B2945E' }}>
