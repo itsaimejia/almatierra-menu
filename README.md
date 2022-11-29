@@ -104,4 +104,4 @@ El lenguaje que se utilizó para este proyecto fue TypeScript ya que es un lengu
 - ##### Itsai Zempoaltecatl Mejia [![Itsai](https://imagizer.imageshack.com/v2/1280x1024q90/924/0KjJQs.png)](https://github.com/itsaimejia)
 - ##### Vicki Ornelas  [![Vicki](https://imagizer.imageshack.com/v2/100x75q90/923/bOThTs.png)](https://github.com/Vickiornelas27)
 - ##### Victor Rivera Moreno [![Victor](https://imagizer.imageshack.com/v2/100x75q90/923/dW2yYz.png)](https://github.com/Victor-Martin-Rivera)
-- ##### Angel Mora Silva [![Angel](https://imagizer.imageshack.com/v2/100x75q90/923/b0brgy.png)](https://github.com/itsaimejia)
+- ##### Angel Mora Silva [![Angel](https://imagizer.imageshack.com/v2/100x75q90/923/b0brgy.png)](https://github.com/angeITE)
