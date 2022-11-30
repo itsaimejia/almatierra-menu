@@ -6,8 +6,9 @@ import { CardMenu } from '../components/CardMenu';
 import { db } from '../firebase/firebase';
 
 export default function Home({ images }: { images: any }) {
+  console.log
   const [dataMenus, setDataMenus] = useState([])
-  
+
   useEffect(() => {
     const fetchMenus = async () => {
       let menus: any = []
@@ -81,8 +82,7 @@ export async function getStaticProps() {
     }
     images.push(newObject)
   })
-  let imgs = images.filter((e: any) => e !== null)
-  let banners = imgs.filter((e: any) => e.section === 'banner')
+  let banners = images.filter((e: any) => e.section === 'banner')
   return {
     props: {
       images: banners
