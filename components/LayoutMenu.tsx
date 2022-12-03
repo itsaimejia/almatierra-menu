@@ -37,7 +37,7 @@ export default function LayoutMenu({ children, dataMenus }: { children: any, dat
             />)}
             <Box sx={{
                 width: '100%',
-                height: isNotMobile ? 300 : 100,
+                height: isNotMobile ? 350 : 100,
                 backgroundImage: `url(${getDataMenu()?.banner})`,
                 padding: 0, margin: 0, backgroundSize: 'cover',
                 backgroundPosition: 'center center',
