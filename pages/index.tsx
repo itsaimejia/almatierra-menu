@@ -5,10 +5,31 @@ import React, { useEffect, useState } from 'react'
 import { CardMenu } from '../components/CardMenu';
 import { db } from '../firebase/firebase';
 
-export default function Home({ images }: { images: any }) {
+export default function Home() {
   console.log
-  const [dataMenus, setDataMenus] = useState([])
+  const [images, setImages] = useState([])
+  useEffect(() => {
+    const fetchBannerImages = async () => {
+      let images: any = []
+      const querySnapshot = await getDocs(collection(db, "images"))
+      querySnapshot.forEach((doc) => {
 
+        const newObject = {
+          alt: doc.data().alt,
+          categorie: doc.data().categorie,
+          menu: doc.data().menu,
+          section: doc.data().section,
+          src: doc.data().src
+        }
+        images.push(newObject)
+      })
+      let banners = images.filter((e: any) => e.section === 'banner')
+      setImages(banners)
+    }
+    fetchBannerImages()
+  })
+  
+  const [dataMenus, setDataMenus] = useState([])
   useEffect(() => {
     const fetchMenus = async () => {
       let menus: any = []
@@ -68,27 +89,7 @@ export default function Home({ images }: { images: any }) {
   )
 }
 
-export async function getStaticProps() {
-  let images: any = []
-  const querySnapshot = await getDocs(collection(db, "images"))
-  querySnapshot.forEach((doc) => {
 
-    const newObject = {
-      alt: doc.data().alt,
-      categorie: doc.data().categorie,
-      menu: doc.data().menu,
-      section: doc.data().section,
-      src: doc.data().src
-    }
-    images.push(newObject)
-  })
-  let banners = images.filter((e: any) => e.section === 'banner')
-  return {
-    props: {
-      images: banners
-    },
-  }
-}
 
 
 
