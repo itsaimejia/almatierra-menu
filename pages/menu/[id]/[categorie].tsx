@@ -118,9 +118,6 @@ export default function IdCategorie() {
                     </SimpleGrid>
                 </Container>
             </Box>
-
-
-
         </LayoutMenu>
     )
 }
