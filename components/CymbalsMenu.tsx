@@ -27,6 +27,7 @@ export function CymbalsMenu({ cymbals, image }: CymbalMenuProps) {
 
         </Grid>) : (
             <Stack>
+                <Image height={'270px'} src={image} alt={'sadas'}></Image>
                 {cymbals.map((c: any, i: number) => (<CymbalDetail key={i} name={c.name} description={c.description} price={c.price} />))}
             </Stack>
         )

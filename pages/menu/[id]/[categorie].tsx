@@ -7,7 +7,6 @@ import { normilizeRoute } from "../../../static/onStrings";
 import { useEffect, useState } from 'react';
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
-import { useMediaQuery } from "@mantine/hooks";
 
 
 
@@ -111,7 +110,6 @@ export default function IdCategorie() {
                 })}
             >
                 <Container sx={{ maxWidth: '1200px' }}>
-
                     <SimpleGrid
                         cols={cymbalsPerCatergorie.length > 3 ? 2 : 1} breakpoints={[{ maxWidth: 1000, cols: 1 }]}>
                         {dataToCymbals.map((dt: any, i: number) => <CymbalsMenu key={i} cymbals={dt} image={imagesCategorie[i]} />)}
