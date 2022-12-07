@@ -29,10 +29,10 @@ export const ButtonMenuOption = ({ title, fontSize, active, dataMenus, onClose }
             styles={() => ({
                 root: {
                     borderRadius: '15px',
-                    backgroundColor: active ? '#D9D9D9' : router.asPath.includes(normilizeRoute(title)) ? '#D9D9D9' : '#B2945E',
+                    backgroundColor: active ? '#D9D9D9' : router.asPath.includes(normilizeRoute(title)) ? '#D9D9D9' : '#BB3E03',
                     color: 'black',
                     fontSize: fontSize,
-                    ":hover": { backgroundColor: '#CCB182' }
+                    ":hover": { backgroundColor: '#bb5d03' }
                 }
             })}>
             {title}

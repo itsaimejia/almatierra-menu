@@ -21,7 +21,7 @@ export default function LayoutMenu({ children, dataMenus }: { children: any, dat
 
     const getDataMenu = () => dataMenus.find((d: any) => normilizeRoute(d.title) === currentMenu)
     return (
-        <Stack sx={{ backgroundColor: '#B2945E' }}>
+        <Stack sx={{ backgroundColor: '#f5f5dc' }}>
             {isNotMobile ? null : (<Burger
                 color={openedBurger ? 'black' : 'white'}
                 opened={openedBurger}

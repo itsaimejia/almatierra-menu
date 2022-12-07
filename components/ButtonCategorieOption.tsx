@@ -12,9 +12,9 @@ interface ButtonCategorieOptionProps {
 }
 
 export const ButtonCategorieOption = ({ title, menu, fontSize, ...others }: ButtonCategorieOptionProps) => {
-   
+
     const router = useRouter()
-    
+
     return (
         //Button that shows the title of the subcategories and their information
         <Button
@@ -23,8 +23,8 @@ export const ButtonCategorieOption = ({ title, menu, fontSize, ...others }: Butt
             styles={() => ({
                 root: {
                     borderRadius: '15px',
-                    backgroundColor: router.asPath.includes(`/menu/${normilizeRoute(menu)}/${normilizeRoute(title)}`) ? '#D9D9D9' : '#B2945E',
-                    color: 'black', fontSize: fontSize, ":hover": { backgroundColor: '#CCB182' }
+                    backgroundColor: router.asPath.includes(`/menu/${normilizeRoute(menu)}/${normilizeRoute(title)}`) ? '#D9D9D9' : '#BB3E03',
+                    color: 'black', fontSize: fontSize, ":hover": { backgroundColor: '#bb5d03' }
                 }
             })}>
             {title}

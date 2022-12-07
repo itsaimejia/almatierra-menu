@@ -15,7 +15,7 @@ export const MenuOptionsDrawer = ({ opened, onClose, dataMenus }: { opened: bool
             zIndex={1}
 
         >
-            <ScrollArea sx={{ height: 'calc(100vh )', backgroundColor: '#B2945E' }} mx="-md">
+            <ScrollArea sx={{ height: 'calc(100vh )', backgroundColor: '#f5f5dc' }} mx="-md">
                 <Stack>
                     <Center>
                         <Text fw={700} size={30}>Menú Almatierra</Text>

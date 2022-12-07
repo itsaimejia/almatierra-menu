@@ -31,7 +31,7 @@ export default function Home({ images }: { images: any }) {
 
   return (
     //shows a carousel with images of events
-    <Stack sx={{ backgroundColor: '#B2945E' }}>
+    <Stack sx={{ backgroundColor: '#f5f5dc' }}>
       <Carousel
         sx={{ minWidth: '100%', backgroundColor: 'black' }}
         slideSize="70%"
