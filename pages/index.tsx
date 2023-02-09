@@ -13,7 +13,7 @@ export default function Home({ images }: { images: any }) {
     const fetchMenus = async () => {
       let menus: any = []
       const querySnapshot = await getDocs(collection(db, "menus"))
-      querySnapshot.forEach((doc) => {
+      querySnapshot.forEach((doc:any) => {
         const newObject = {
           banner: doc.data().banner,
           categories: doc.data().categorie,
@@ -71,7 +71,7 @@ export default function Home({ images }: { images: any }) {
 export async function getServerSideProps() {
   let images: any = []
   const querySnapshot = await getDocs(collection(db, "images"))
-  querySnapshot.forEach((doc) => {
+  querySnapshot.forEach((doc:any) => {
 
     const newObject = {
       alt: doc.data().alt,
